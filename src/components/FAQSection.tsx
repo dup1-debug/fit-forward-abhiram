@@ -37,16 +37,14 @@ const FAQSection = () => {
   };
 
   return (
-    <section id="faq" className="py-20 soft-sage">
+    <section id="faq" className="section-padding bg-gradient-to-br from-slate-50 via-gray-50 to-slate-100">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6">
             Frequently Asked{' '}
-            <span className="bg-gradient-to-r from-amber-700 to-orange-700 bg-clip-text text-transparent">
-              Questions
-            </span>
+            <span className="text-secondary">Questions</span>
           </h2>
-          <p className="text-xl text-gray-700">
+          <p className="text-xl text-muted-foreground">
             Get answers to common questions about the fitness transformation program
           </p>
         </div>
@@ -55,26 +53,26 @@ const FAQSection = () => {
           {faqs.map((faq, index) => (
             <div 
               key={index}
-              className="bg-gradient-to-br from-amber-50 to-orange-100 rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
+              className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
             >
               <button
                 onClick={() => toggleFAQ(index)}
-                className="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-gradient-to-br from-amber-100 to-orange-150 transition-colors"
+                className="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-gray-50 transition-colors"
               >
-                <h3 className="text-lg font-semibold text-gray-900 pr-4">
+                <h3 className="text-lg font-semibold text-primary pr-4">
                   {faq.question}
                 </h3>
                 <div className="flex-shrink-0">
                   {openFAQ === index ? (
-                    <ChevronUp className="w-5 h-5 text-blue-600" />
+                    <ChevronUp className="w-5 h-5 text-secondary" />
                   ) : (
-                    <ChevronDown className="w-5 h-5 text-gray-400" />
+                    <ChevronDown className="w-5 h-5 text-muted-foreground" />
                   )}
                 </div>
               </button>
               
               {openFAQ === index && (
-                <div className="px-8 pb-6 text-gray-700 leading-relaxed">
+                <div className="px-8 pb-6 text-muted-foreground leading-relaxed">
                   {faq.answer}
                 </div>
               )}
@@ -83,10 +81,10 @@ const FAQSection = () => {
         </div>
         
         <div className="text-center mt-12">
-          <p className="text-gray-600 mb-6">Still have questions?</p>
+          <p className="text-muted-foreground mb-6">Still have questions?</p>
           <button 
             onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-            className="bg-gradient-to-r from-amber-700 to-orange-700 text-stone-50 px-8 py-4 rounded-full text-lg font-semibold hover:shadow-2xl hover:scale-105 transition-all duration-300"
+            className="btn-primary px-8 py-4 rounded-full text-lg font-semibold hover:shadow-2xl hover:scale-105 transition-all duration-300"
           >
             Get Personal Answers
           </button>
