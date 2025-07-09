@@ -70,13 +70,13 @@ const Navbar = () => {
                   >
                     {item.label}
                   </button>
-                  {/* Stylish Tooltip - Bottom positioned with orange background */}
-                  <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-                    <div className="bg-orange-500 text-white text-xs px-2 py-1 rounded-md shadow-lg whitespace-nowrap">
-                      {item.tooltip}
-                      <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 border-l-4 border-r-4 border-b-4 border-transparent border-b-orange-500"></div>
-                    </div>
-                  </div>
+                   {/* Stylish Tooltip */}
+                   <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                     <div className="text-white text-xs px-2 py-1 rounded-md shadow-lg whitespace-nowrap" style={{backgroundColor: 'hsl(var(--secondary))'}}>
+                       {item.tooltip}
+                       <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 border-l-4 border-r-4 border-b-4 border-transparent" style={{borderBottomColor: 'hsl(var(--secondary))'}}></div>
+                     </div>
+                   </div>
                 </div>
               ))}
             </div>
@@ -84,12 +84,12 @@ const Navbar = () => {
           
           {/* Desktop CTA Button */}
           <div className="hidden md:block">
-            <button 
-              onClick={() => scrollToSection('contact')}
-              className="btn-matte px-6 py-3 rounded-lg text-base lg:text-lg font-semibold"
-            >
-              Get Started
-            </button>
+              <button 
+                onClick={() => scrollToSection('contact')}
+                className="btn-primary px-6 py-3 rounded-lg text-base lg:text-lg font-semibold"
+              >
+                Get Started
+              </button>
           </div>
           
           {/* Mobile menu button */}
@@ -125,7 +125,7 @@ const Navbar = () => {
               ))}
               <button 
                 onClick={() => scrollToSection('contact')}
-                className="btn-matte w-full text-center py-4 rounded-md text-base font-semibold mt-4"
+                className="btn-primary w-full text-center py-4 rounded-md text-base font-semibold mt-4"
               >
                 Get Started
               </button>
