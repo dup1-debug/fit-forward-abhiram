@@ -26,7 +26,7 @@ const HeroSection = () => {
           <div className="text-white space-y-8">
             <div className="space-y-6">
               <h1 className="text-5xl md:text-7xl font-black leading-tight tracking-tight">
-                IT'S EITHER{' '}
+               BOT GAADU VEEDU
                 <span className="text-red-500">
                   NOW
                 </span>
