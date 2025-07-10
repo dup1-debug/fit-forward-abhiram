@@ -1,3 +1,4 @@
+
 /* eslint-disable @typescript-eslint/no-require-imports */
 
 import type { Config } from "tailwindcss";
@@ -67,6 +68,14 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
+				// Earthy Strength theme colors
+				'forest-dark': 'hsl(var(--forest-dark))',
+				'forest-light': 'hsl(var(--forest-light))',
+				'terracotta-light': 'hsl(var(--terracotta-light))',
+				'terracotta-dark': 'hsl(var(--terracotta-dark))',
+				'stone-gray': 'hsl(var(--stone-gray))',
+				'stone-light': 'hsl(var(--stone-light))',
+				'cream-warm': 'hsl(var(--cream-warm))',
 				// Custom fitness brand colors
 				'coral': {
 					50: '#fef7f3',
