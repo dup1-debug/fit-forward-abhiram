@@ -37,14 +37,21 @@ const FAQSection = () => {
   };
 
   return (
-    <section id="faq" className="section-padding bg-gradient-to-br from-slate-50 via-gray-50 to-slate-100">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="faq" className="section-padding bg-gradient-to-br from-cream-warm via-stone-light to-cream-warm relative overflow-hidden">
+      {/* Background decorative elements */}
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute top-32 left-16 w-36 h-36 bg-primary rounded-full blur-3xl"></div>
+        <div className="absolute bottom-32 right-16 w-32 h-32 bg-secondary rounded-full blur-2xl"></div>
+        <div className="absolute top-2/3 left-2/3 w-28 h-28 bg-accent rounded-full blur-xl"></div>
+      </div>
+      
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6">
             Frequently Asked{' '}
             <span className="text-secondary">Questions</span>
           </h2>
-          <p className="text-xl text-muted-foreground">
+          <p className="text-xl text-stone-gray">
             Get answers to common questions about the fitness transformation program
           </p>
         </div>
@@ -53,11 +60,11 @@ const FAQSection = () => {
           {faqs.map((faq, index) => (
             <div 
               key={index}
-              className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
+              className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 border border-stone-gray/20"
             >
               <button
                 onClick={() => toggleFAQ(index)}
-                className="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-gray-50 transition-colors"
+                className="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-stone-light/30 transition-colors"
               >
                 <h3 className="text-lg font-semibold text-primary pr-4">
                   {faq.question}
@@ -66,13 +73,13 @@ const FAQSection = () => {
                   {openFAQ === index ? (
                     <ChevronUp className="w-5 h-5 text-secondary" />
                   ) : (
-                    <ChevronDown className="w-5 h-5 text-muted-foreground" />
+                    <ChevronDown className="w-5 h-5 text-stone-gray" />
                   )}
                 </div>
               </button>
               
               {openFAQ === index && (
-                <div className="px-8 pb-6 text-muted-foreground leading-relaxed">
+                <div className="px-8 pb-6 text-stone-gray leading-relaxed bg-stone-light/20">
                   {faq.answer}
                 </div>
               )}
@@ -81,7 +88,7 @@ const FAQSection = () => {
         </div>
         
         <div className="text-center mt-12">
-          <p className="text-muted-foreground mb-6">Still have questions?</p>
+          <p className="text-stone-gray mb-6">Still have questions?</p>
           <button 
             onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
             className="btn-primary px-8 py-4 rounded-full text-lg font-semibold hover:shadow-2xl hover:scale-105 transition-all duration-300"

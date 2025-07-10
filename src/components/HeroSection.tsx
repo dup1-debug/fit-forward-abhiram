@@ -27,7 +27,7 @@ const HeroSection = () => {
           backgroundSize: 'cover'
         }}
       >
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/60 to-primary/40"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-black/30"></div>
       </div>
       
       {/* Mobile Background Image (hidden on desktop) */}
@@ -39,7 +39,7 @@ const HeroSection = () => {
           backgroundSize: 'cover'
         }}
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-primary/95 to-primary/70"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/90 to-black/70"></div>
       </div>
 
       {/* Content - Different layouts for mobile and desktop */}

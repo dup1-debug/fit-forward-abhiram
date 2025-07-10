@@ -1,3 +1,4 @@
+
 import { Instagram, ExternalLink, Heart, RefreshCw } from 'lucide-react';
 import { useEffect, useRef } from 'react';
 import { useInstagramPosts } from '../hooks/useInstagramPosts';
@@ -82,12 +83,12 @@ const InstagramSection = () => {
   return (
     <div id="instagram">
       {/* Mobile Section */}
-      <section ref={sectionRef} className="block lg:hidden section-padding bg-gradient-to-br from-slate-50 via-gray-50 to-slate-100 relative overflow-hidden">
+      <section ref={sectionRef} className="block lg:hidden section-padding bg-gradient-to-br from-stone-light via-cream-warm to-stone-light relative overflow-hidden">
         {/* Mobile Background Pattern */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-10 left-10 w-20 h-20 bg-secondary rounded-full blur-xl"></div>
           <div className="absolute top-1/3 right-8 w-16 h-16 bg-primary rounded-full blur-lg"></div>
-          <div className="absolute bottom-1/4 left-6 w-24 h-24 bg-secondary rounded-full blur-xl"></div>
+          <div className="absolute bottom-1/4 left-6 w-24 h-24 bg-accent rounded-full blur-xl"></div>
         </div>
         
         <div className="relative z-10 px-4 py-16">
@@ -100,7 +101,7 @@ const InstagramSection = () => {
                 <span className="text-secondary">Journey</span>
               </h2>
             </div>
-            <p className="text-base sm:text-lg text-muted-foreground max-w-sm mx-auto leading-relaxed">
+            <p className="text-base sm:text-lg text-stone-gray max-w-sm mx-auto leading-relaxed">
               {posts.length > 0 
                 ? `Latest posts from @coachpotate on Instagram (${posts.length} posts)` 
                 : 'Daily transformation updates & motivation from your fitness coach'
@@ -114,7 +115,7 @@ const InstagramSection = () => {
               <div 
                 key={post.id}
                 onClick={() => handlePostClick(post.postUrl || 'https://instagram.com/coachpotate')}
-                className="aspect-[9/16] bg-gradient-to-br from-primary/10 to-secondary/10 rounded-2xl overflow-hidden hover:scale-[1.02] hover:shadow-xl transition-all duration-300 cursor-pointer group relative"
+                className="aspect-[9/16] bg-gradient-to-br from-primary/10 to-secondary/10 rounded-2xl overflow-hidden hover:scale-[1.02] hover:shadow-xl transition-all duration-300 cursor-pointer group relative border border-stone-gray/20 bg-white/80 backdrop-blur-sm"
               >
                 {posts.length > 0 && post.imageUrl && post.imageUrl !== '/placeholder.svg' ? (
                   <div className="relative w-full h-full">
@@ -159,7 +160,7 @@ const InstagramSection = () => {
               <Instagram className="w-6 h-6" />
               Follow @CoachPotate
             </a>
-            <p className="text-muted-foreground mt-4 font-medium text-sm sm:text-base">
+            <p className="text-stone-gray mt-4 font-medium text-sm sm:text-base">
               {posts.length > 0 
                 ? `Latest from ${posts.length} Instagram posts` 
                 : 'Join 50K+ transforming their lives'
@@ -170,8 +171,15 @@ const InstagramSection = () => {
       </section>
 
       {/* Desktop Section */}
-      <section className="hidden lg:block section-padding bg-gradient-to-br from-slate-50 via-gray-50 to-slate-100">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-24">
+      <section className="hidden lg:block section-padding bg-gradient-to-br from-stone-light via-cream-warm to-stone-light relative overflow-hidden">
+        {/* Background decorative elements */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-32 left-20 w-40 h-40 bg-secondary rounded-full blur-3xl"></div>
+          <div className="absolute bottom-32 right-20 w-36 h-36 bg-primary rounded-full blur-3xl"></div>
+          <div className="absolute top-2/3 left-1/3 w-32 h-32 bg-accent rounded-full blur-2xl"></div>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-24 relative z-10">
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-4 mb-6">
               <Instagram className="w-12 h-12 text-secondary" />
@@ -180,7 +188,7 @@ const InstagramSection = () => {
                 <span className="text-secondary">Journey</span>
               </h2>
             </div>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-xl text-stone-gray max-w-3xl mx-auto">
               {posts.length > 0 
                 ? `Latest fitness transformations and daily motivation from @coachpotate (${posts.length} posts loaded)` 
                 : 'Daily fitness transformation updates and motivation from India\'s leading online fitness coach'
@@ -193,7 +201,7 @@ const InstagramSection = () => {
               <div 
                 key={post.id}
                 onClick={() => handlePostClick(post.postUrl || 'https://instagram.com/coachpotate')}
-                className="aspect-[9/16] bg-gradient-to-br from-primary/10 to-secondary/10 rounded-3xl overflow-hidden hover:scale-[1.02] hover:shadow-2xl transition-all duration-300 cursor-pointer group relative"
+                className="aspect-[9/16] bg-gradient-to-br from-primary/10 to-secondary/10 rounded-3xl overflow-hidden hover:scale-[1.02] hover:shadow-2xl transition-all duration-300 cursor-pointer group relative border border-stone-gray/20 bg-white/80 backdrop-blur-sm"
               >
                 {posts.length > 0 && post.imageUrl && post.imageUrl !== '/placeholder.svg' ? (
                   <div className="relative w-full h-full">
@@ -237,7 +245,7 @@ const InstagramSection = () => {
               <Instagram className="w-8 h-8" />
               Follow @CoachPotate
             </a>
-            <p className="text-muted-foreground mt-6 font-medium text-lg">
+            <p className="text-stone-gray mt-6 font-medium text-lg">
               {posts.length > 0 
                 ? `${posts.length} latest posts • Join the fitness transformation community` 
                 : 'Join 50K+ on their fitness transformation journey'
