@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -46,8 +47,8 @@ const Navbar = () => {
     <nav 
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
         scrolled 
-          ? 'bg-black/25 backdrop-blur-lg shadow-lg' 
-          : 'bg-black/15 backdrop-blur-sm'
+          ? 'bg-primary/90 backdrop-blur-lg shadow-lg' 
+          : 'bg-primary/70 backdrop-blur-sm'
       }`}
     >
       <div className="w-full mx-auto px-4 sm:px-6 lg:px-8">
@@ -66,15 +67,15 @@ const Navbar = () => {
                 <div key={item.id} className="relative group">
                   <button 
                     onClick={() => scrollToSection(item.id)}
-                    className="text-gray-300 hover:text-white transition-colors font-medium text-base lg:text-lg py-2 px-2 rounded-md hover:bg-white/10"
+                    className="text-stone-200 hover:text-white transition-colors font-medium text-base lg:text-lg py-2 px-2 rounded-md hover:bg-white/10"
                   >
                     {item.label}
                   </button>
                    {/* Stylish Tooltip */}
                    <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-                     <div className="text-white text-xs px-2 py-1 rounded-md shadow-lg whitespace-nowrap" style={{backgroundColor: 'hsl(var(--secondary))'}}>
+                     <div className="bg-accent text-foreground text-xs px-2 py-1 rounded-md shadow-lg whitespace-nowrap">
                        {item.tooltip}
-                       <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 border-l-4 border-r-4 border-b-4 border-transparent" style={{borderBottomColor: 'hsl(var(--secondary))'}}></div>
+                       <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 border-l-4 border-r-4 border-b-4 border-transparent border-b-accent"></div>
                      </div>
                    </div>
                 </div>
@@ -86,7 +87,7 @@ const Navbar = () => {
           <div className="hidden md:block">
               <button 
                 onClick={() => scrollToSection('contact')}
-                className="btn-primary px-6 py-3 rounded-lg text-base lg:text-lg font-semibold"
+                className="bg-accent text-foreground hover:bg-accent/90 px-6 py-3 rounded-lg text-base lg:text-lg font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300"
               >
                 Get Started
               </button>
@@ -96,7 +97,7 @@ const Navbar = () => {
           <div className="md:hidden">
             <button 
               onClick={() => setMenuOpen(!menuOpen)}
-              className="text-gray-300 hover:text-white"
+              className="text-stone-200 hover:text-white"
               aria-label={menuOpen ? "Close menu" : "Open menu"}
             >
               <svg className="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
@@ -112,20 +113,20 @@ const Navbar = () => {
 
         {/* Mobile menu, toggle based on menu state */}
         {menuOpen && (
-          <div className="md:hidden py-4 px-2 rounded-b-lg animate-fade-in bg-black/20 backdrop-blur-md">
+          <div className="md:hidden py-4 px-2 rounded-b-lg animate-fade-in bg-primary/90 backdrop-blur-md">
             <div className="flex flex-col space-y-4">
               {navigationItems.map((item) => (
                 <button 
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className="text-gray-300 hover:text-white transition-colors font-medium py-3 px-4 rounded-md hover:bg-white/10 text-left text-base"
+                  className="text-stone-200 hover:text-white transition-colors font-medium py-3 px-4 rounded-md hover:bg-white/10 text-left text-base"
                 >
                   {item.label}
                 </button>
               ))}
               <button 
                 onClick={() => scrollToSection('contact')}
-                className="btn-primary w-full text-center py-4 rounded-md text-base font-semibold mt-4"
+                className="bg-accent text-foreground hover:bg-accent/90 w-full text-center py-4 rounded-md text-base font-semibold mt-4 transition-all duration-300"
               >
                 Get Started
               </button>

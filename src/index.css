@@ -15,87 +15,88 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Modern Fitness Color Palette */
-    --background: 0 0% 100%;
-    --foreground: 220 18% 20%;
+    /* Earthy Strength Color Palette */
+    --background: 32 50% 97%;
+    --foreground: 20 14% 4%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 220 18% 20%;
+    --card: 32 50% 97%;
+    --card-foreground: 20 14% 4%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 220 18% 20%;
+    --popover: 32 50% 97%;
+    --popover-foreground: 20 14% 4%;
 
-    /* Deep Navy Primary */
-    --primary: 220 39% 11%;
+    /* Forest Green Primary */
+    --primary: 160 91% 20%;
     --primary-foreground: 0 0% 98%;
 
-    /* Vibrant Teal Secondary */
-    --secondary: 174 83% 38%;
+    /* Warm Terracotta Secondary */
+    --secondary: 0 84% 49%;
     --secondary-foreground: 0 0% 98%;
 
-    /* Warm Gray Muted */
-    --muted: 220 14% 96%;
-    --muted-foreground: 220 9% 46%;
+    /* Warm Stone Gray Muted */
+    --muted: 25 12% 88%;
+    --muted-foreground: 25 12% 45%;
 
-    /* Teal Accent */
-    --accent: 174 83% 38%;
-    --accent-foreground: 0 0% 98%;
+    /* Golden Yellow Accent */
+    --accent: 45 93% 58%;
+    --accent-foreground: 20 14% 4%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 220 13% 91%;
-    --input: 220 13% 91%;
-    --ring: 174 83% 38%;
+    --border: 25 12% 85%;
+    --input: 25 12% 85%;
+    --ring: 160 91% 20%;
 
     --radius: 0.75rem;
 
-    /* Modern Fitness Theme Extensions */
-    --navy-dark: 220 39% 8%;
-    --navy-light: 220 39% 15%;
-    --teal-light: 174 83% 45%;
-    --teal-dark: 174 83% 30%;
-    --gray-warm: 220 9% 46%;
-    --gray-light: 220 14% 96%;
+    /* Earthy Strength Theme Extensions */
+    --forest-dark: 160 91% 15%;
+    --forest-light: 160 91% 25%;
+    --terracotta-light: 0 84% 55%;
+    --terracotta-dark: 0 84% 45%;
+    --stone-gray: 25 12% 45%;
+    --stone-light: 25 12% 88%;
+    --cream-warm: 32 50% 95%;
 
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 220 18% 20%;
-    --sidebar-primary: 220 39% 11%;
+    --sidebar-background: 32 50% 95%;
+    --sidebar-foreground: 20 14% 4%;
+    --sidebar-primary: 160 91% 20%;
     --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 220 14% 96%;
-    --sidebar-accent-foreground: 220 39% 11%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 174 83% 38%;
+    --sidebar-accent: 25 12% 88%;
+    --sidebar-accent-foreground: 160 91% 20%;
+    --sidebar-border: 25 12% 85%;
+    --sidebar-ring: 160 91% 20%;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --background: 20 14% 4%;
+    --foreground: 0 0% 95%;
+    --card: 20 14% 4%;
+    --card-foreground: 0 0% 95%;
+    --popover: 20 14% 4%;
+    --popover-foreground: 0 0% 95%;
+    --primary: 160 91% 30%;
+    --primary-foreground: 20 14% 4%;
+    --secondary: 0 84% 45%;
+    --secondary-foreground: 0 0% 95%;
+    --muted: 25 12% 15%;
+    --muted-foreground: 25 12% 60%;
+    --accent: 45 93% 50%;
+    --accent-foreground: 20 14% 4%;
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --destructive-foreground: 0 0% 95%;
+    --border: 25 12% 15%;
+    --input: 25 12% 15%;
+    --ring: 160 91% 30%;
+    --sidebar-background: 20 14% 6%;
+    --sidebar-foreground: 0 0% 95%;
+    --sidebar-primary: 160 91% 30%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 25 12% 15%;
+    --sidebar-accent-foreground: 0 0% 95%;
+    --sidebar-border: 25 12% 15%;
+    --sidebar-ring: 160 91% 30%;
   }
 }
 
@@ -105,7 +106,7 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-gradient-to-br from-slate-50 via-gray-50 to-slate-100 text-foreground font-sans;
+    @apply bg-gradient-to-br from-cream-warm via-stone-light to-muted text-foreground font-sans;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
 
@@ -114,7 +115,7 @@ All colors MUST be HSL.
   }
 }
 
-/* Custom scrollbar - Modern Fitness theme */
+/* Custom scrollbar - Earthy Strength theme */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -124,56 +125,43 @@ All colors MUST be HSL.
 }
 
 ::-webkit-scrollbar-thumb {
-  background: hsl(var(--secondary));
+  background: hsl(var(--primary));
   border-radius: 999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: hsl(var(--teal-dark));
+  background: hsl(var(--forest-dark));
 }
 
 @layer components {
   .soft-lavender {
-    background-color: hsl(250, 60%, 95%);
+    background-color: hsl(160, 40%, 95%);
   }
 
   .soft-blush {
-    background-color: hsl(340, 50%, 96%);
+    background-color: hsl(0, 30%, 96%);
   }
 
   .soft-sage {
-    background-color: hsl(120, 25%, 95%);
+    background-color: hsl(160, 25%, 95%);
   }
 
   .soft-peach {
-    background-color: hsl(20, 60%, 95%);
+    background-color: hsl(25, 40%, 95%);
   }
 
   .soft-sky {
-    background-color: hsl(200, 60%, 95%);
+    background-color: hsl(160, 60%, 95%);
   }
 
   .text-soft-gray {
-    color: hsl(220, 10%, 35%);
+    color: hsl(25, 12%, 35%);
   }
 
   .text-muted-gray {
-    color: hsl(220, 8%, 45%);
+    color: hsl(25, 12%, 45%);
   }
-
-  /* .seamless-section {
-    @apply py-20 lg:py-32;
-  }
-
-  .section-padding {
-    @apply px-6 md:px-12 lg:px-20 xl:px-32;
-  }
-
-  .hover-lift {
-    @apply transition-all duration-300 hover:transform hover:-translate-y-1;
-  } */
 }
-
 
 /* Smooth hover transitions */
 @layer components {
@@ -193,16 +181,16 @@ All colors MUST be HSL.
   }
   
   .btn-primary {
-    background: hsl(var(--secondary));
-    color: hsl(var(--secondary-foreground));
+    background: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
     @apply font-medium px-8 py-3 rounded-lg transition-all duration-300 shadow-none border-none;
     box-shadow: none !important;
   }
   
   .btn-primary:hover {
-    background: hsl(var(--teal-dark));
+    background: hsl(var(--forest-dark));
     transform: translateY(-1px);
-    box-shadow: 0 4px 12px hsl(var(--secondary) / 0.3) !important;
+    box-shadow: 0 4px 12px hsl(var(--primary) / 0.3) !important;
   }
 }
 
@@ -227,7 +215,7 @@ All colors MUST be HSL.
   textarea:focus-visible,
   select:focus-visible {
     outline: none;
-    ring: 2px solid hsl(var(--secondary));
+    ring: 2px solid hsl(var(--primary));
     ring-offset: 2px;
   }
 }
