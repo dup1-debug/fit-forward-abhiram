@@ -23,6 +23,8 @@ export default {
 		extend: {
 			fontFamily: {
 				sans: ['Inter', 'system-ui', 'sans-serif'],
+				'helvetica': ['Work Sans', 'system-ui', 'sans-serif'],
+				'zt-formom': ['Work Sans', 'system-ui', 'sans-serif'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',
@@ -76,6 +78,7 @@ export default {
 					500: '#495057',
 					600: '#343a40',
 					700: '#212529',
+					900: '#1C1C1C',
 				},
 				'sky-blue': {
 					50: '#f0f9ff',
@@ -104,6 +107,11 @@ export default {
 					400: '#9ca89c',
 					500: '#7a8a7a',
 					600: '#5d6d5d',
+				},
+				'forest-green': {
+					500: '#11864B',
+					600: '#0f7741',
+					700: '#0d6937',
 				}
 			},
 			borderRadius: {

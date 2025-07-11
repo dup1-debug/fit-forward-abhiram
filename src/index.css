@@ -28,6 +28,10 @@ All colors MUST be HSL.
     /* Charcoal Primary */
     --primary: 210 20% 32%;
     --primary-foreground: 0 0% 98%;
+    
+    /* Custom Colors */
+    --charcoal-dark: 0 0% 11%; /* #1C1C1C */
+    --forest-green: 150 74% 30%; /* #11864B */
 
     /* Sky Blue Secondary */
     --secondary: 199 89% 64%;

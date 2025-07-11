@@ -153,11 +153,11 @@ const ContactForm = () => {
         <div className="relative z-10 px-4 py-12">
           {/* Mobile Header */}
           <div className="text-center mb-8">
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl sm:text-4xl font-bold text-charcoal-900 mb-4 font-helvetica">
               Transform Your{' '}
-              <span className="text-orange-600">Body & Mind</span>
+              <span className="text-forest-green-500">Body & Mind</span>
             </h2>
-            <p className="text-base sm:text-lg text-gray-600 max-w-lg mx-auto">
+            <p className="text-base sm:text-lg text-gray-600 max-w-lg mx-auto font-zt-formom">
               Ready to unlock your full potential? Join thousands who've transformed their lives.
             </p>
           </div>
