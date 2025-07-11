@@ -9,7 +9,7 @@ const VSLSection = () => {
           backgroundImage: `url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1920&q=80')`,
         }}
       >
-        <div className="absolute inset-0 bg-primary/80 backdrop-blur-sm"></div>
+        <div className="absolute inset-0 bg-charcoal-600/80 backdrop-blur-sm"></div>
       </div>
       {/* Top gradient for seamless transition */}
       <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-background/80 to-transparent z-[1]"></div>
@@ -18,11 +18,11 @@ const VSLSection = () => {
         <div className="mb-12">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
             See How Others Got{' '}
-            <span className="text-accent">
+            <span className="text-sky-blue-400">
               Transformed
             </span>
           </h2>
-          <p className="text-stone-100 text-xl max-w-3xl mx-auto">
+          <p className="text-warm-beige-100 text-xl max-w-3xl mx-auto">
             Watch real transformation stories from India's leading online fitness coach
           </p>
         </div>
@@ -46,7 +46,7 @@ const VSLSection = () => {
         <div className="text-center">
           <button 
             onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-            className="btn-primary px-10 py-4 rounded-full text-xl font-semibold hover:shadow-2xl hover:scale-105 transition-all duration-300"
+            className="bg-lavender-500 text-white hover:bg-lavender-600 px-10 py-4 rounded-full text-xl font-semibold hover:shadow-2xl hover:scale-105 transition-all duration-300"
           >
             Start Your Fitness Journey Today
           </button>

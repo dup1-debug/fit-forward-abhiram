@@ -68,28 +68,21 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// Earthy Strength theme colors
-				'forest-dark': 'hsl(var(--forest-dark))',
-				'forest-light': 'hsl(var(--forest-light))',
-				'terracotta-light': 'hsl(var(--terracotta-light))',
-				'terracotta-dark': 'hsl(var(--terracotta-dark))',
-				'stone-gray': 'hsl(var(--stone-gray))',
-				'stone-light': 'hsl(var(--stone-light))',
-				'cream-warm': 'hsl(var(--cream-warm))',
-				// Custom fitness brand colors
-				'coral': {
-					50: '#fef7f3',
-					100: '#fdeee6',
-					400: '#fb8b5e',
-					500: '#f97316',
-					600: '#ea580c',
+				// Natural Earthy theme colors
+				'charcoal': {
+					50: '#f8f9fa',
+					100: '#e9ecef',
+					400: '#6c757d',
+					500: '#495057',
+					600: '#343a40',
+					700: '#212529',
 				},
-				'mint': {
-					50: '#f0fdf9',
-					100: '#dcfce7',
-					400: '#4ade80',
-					500: '#22c55e',
-					600: '#16a34a',
+				'sky-blue': {
+					50: '#f0f9ff',
+					100: '#e0f2fe',
+					400: '#38bdf8',
+					500: '#0ea5e9',
+					600: '#0284c7',
 				},
 				'lavender': {
 					50: '#faf7ff',
@@ -97,6 +90,20 @@ export default {
 					400: '#a855f7',
 					500: '#9333ea',
 					600: '#7c3aed',
+				},
+				'warm-beige': {
+					50: '#fefdfb',
+					100: '#fdf8f0',
+					400: '#d4b896',
+					500: '#c09e73',
+					600: '#a8845d',
+				},
+				'sage': {
+					50: '#f6f7f6',
+					100: '#e2e8e2',
+					400: '#9ca89c',
+					500: '#7a8a7a',
+					600: '#5d6d5d',
 				}
 			},
 			borderRadius: {

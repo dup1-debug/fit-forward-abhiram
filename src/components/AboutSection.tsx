@@ -16,7 +16,7 @@ const AboutSection = () => {
       year: "2019",
       description: "Started with a dream and determination",
       icon: Flame,
-      color: "from-secondary to-terracotta-dark",
+      color: "from-sky-blue-500 to-sky-blue-600",
       motivationalText: "The journey of a thousand miles begins with a single step"
     },
     {
@@ -27,7 +27,7 @@ const AboutSection = () => {
       year: "2021",
       description: "Consistency became the foundation",
       icon: Zap,
-      color: "from-primary to-forest-dark",
+      color: "from-charcoal-500 to-charcoal-600",
       motivationalText: "Success is the sum of small efforts repeated daily"
     },
     {
@@ -38,7 +38,7 @@ const AboutSection = () => {
       year: "2024",
       description: "Achieved what once seemed impossible",
       icon: Trophy,
-      color: "from-accent to-yellow-500",
+      color: "from-lavender-500 to-lavender-600",
       motivationalText: "Your body can stand almost anything. It's your mind you have to convince"
     }
   ];
@@ -73,22 +73,22 @@ const AboutSection = () => {
   );
 
   return (
-    <section ref={sectionRef} className="relative min-h-screen bg-gradient-to-br from-background via-cream-warm to-soft-sage overflow-hidden">
+    <section ref={sectionRef} className="relative min-h-screen bg-gradient-to-br from-sage-50 via-warm-beige-50 to-lavender-50 overflow-hidden">
       {/* Floating Background Elements */}
-      <FloatingElement delay={0} className="top-20 left-10 text-primary/30">
+      <FloatingElement delay={0} className="top-20 left-10 text-sky-blue-400/30">
         <Star size={24} />
       </FloatingElement>
-      <FloatingElement delay={1000} className="top-40 right-20 text-secondary/30">
+      <FloatingElement delay={1000} className="top-40 right-20 text-lavender-400/30">
         <Target size={32} />
       </FloatingElement>
-      <FloatingElement delay={2000} className="bottom-40 left-20 text-accent/30">
+      <FloatingElement delay={2000} className="bottom-40 left-20 text-charcoal-400/30">
         <Heart size={28} />
       </FloatingElement>
 
       <div className="max-w-7xl mx-auto px-6 py-20">
         {/* Header */}
         <div className="text-center mb-20 animate-fade-in">
-          <h2 className="text-6xl lg:text-7xl font-dm-sans font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary mb-6">
+          <h2 className="text-6xl lg:text-7xl font-dm-sans font-bold text-transparent bg-clip-text bg-gradient-to-r from-charcoal-600 to-sky-blue-600 mb-6">
             The Journey
           </h2>
           <p className="text-xl text-muted-foreground font-inter max-w-3xl mx-auto">
@@ -101,7 +101,7 @@ const AboutSection = () => {
           {/* Central Timeline Line */}
           <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-muted rounded-full">
             <div 
-              className="w-full bg-gradient-to-b from-secondary via-primary to-accent rounded-full transition-all duration-1000 ease-out"
+              className="w-full bg-gradient-to-b from-sky-blue-500 via-charcoal-500 to-lavender-500 rounded-full transition-all duration-1000 ease-out"
               style={{ height: `${scrollProgress * 100}%` }}
             />
           </div>
@@ -156,12 +156,12 @@ const AboutSection = () => {
                               alt={`Abhiram's transformation - ${stage.title}`}
                               className="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-110"
                             />
-                            <div className="absolute inset-0 bg-gradient-to-t from-primary/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                            <div className="absolute inset-0 bg-gradient-to-t from-charcoal-600/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                           </div>
                           
                           {/* Floating Number */}
                           <div className="absolute -top-4 -right-4 bg-white rounded-full p-3 shadow-lg">
-                            <span className="text-2xl font-bold text-primary">
+                            <span className="text-2xl font-bold text-charcoal-600">
                               {String(index + 1).padStart(2, '0')}
                             </span>
                           </div>
@@ -174,10 +174,10 @@ const AboutSection = () => {
                           ? 'translate-y-0 opacity-100' 
                           : 'translate-y-8 opacity-50'
                       }`}>
-                        <h3 className="text-3xl font-dm-sans font-bold text-primary mb-2">
+                        <h3 className="text-3xl font-dm-sans font-bold text-charcoal-600 mb-2">
                           {stage.title}
                         </h3>
-                        <h4 className="text-lg font-inter text-secondary mb-3">
+                        <h4 className="text-lg font-inter text-sky-blue-600 mb-3">
                           {stage.subtitle}
                         </h4>
                         <p className="text-sm text-muted-foreground mb-4">
@@ -185,7 +185,7 @@ const AboutSection = () => {
                         </p>
 
                         {/* Motivational Quote */}
-                        <div className="bg-gradient-to-r from-soft-sage to-cream-warm p-4 rounded-lg border-l-4 border-primary">
+                        <div className="bg-gradient-to-r from-sage-100 to-warm-beige-100 p-4 rounded-lg border-l-4 border-charcoal-500">
                           <p className="text-sm italic text-foreground font-inter">
                             "{stage.motivationalText}"
                           </p>
@@ -203,10 +203,10 @@ const AboutSection = () => {
                           ? 'translate-y-0 opacity-100' 
                           : 'translate-y-8 opacity-50'
                       }`}>
-                        <h3 className="text-3xl font-dm-sans font-bold text-primary mb-2">
+                        <h3 className="text-3xl font-dm-sans font-bold text-charcoal-600 mb-2">
                           {stage.title}
                         </h3>
-                        <h4 className="text-lg font-inter text-secondary mb-3">
+                        <h4 className="text-lg font-inter text-sky-blue-600 mb-3">
                           {stage.subtitle}
                         </h4>
                         <p className="text-sm text-muted-foreground mb-4">
@@ -214,7 +214,7 @@ const AboutSection = () => {
                         </p>
 
                         {/* Motivational Quote */}
-                        <div className="bg-gradient-to-r from-soft-sage to-cream-warm p-4 rounded-lg border-l-4 border-primary">
+                        <div className="bg-gradient-to-r from-sage-100 to-warm-beige-100 p-4 rounded-lg border-l-4 border-charcoal-500">
                           <p className="text-sm italic text-foreground font-inter">
                             "{stage.motivationalText}"
                           </p>
@@ -240,12 +240,12 @@ const AboutSection = () => {
                               alt={`Abhiram's transformation - ${stage.title}`}
                               className="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-110"
                             />
-                            <div className="absolute inset-0 bg-gradient-to-t from-primary/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                            <div className="absolute inset-0 bg-gradient-to-t from-charcoal-600/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                           </div>
                           
                           {/* Floating Number */}
                           <div className="absolute -top-4 -right-4 bg-white rounded-full p-3 shadow-lg">
-                            <span className="text-2xl font-bold text-primary">
+                            <span className="text-2xl font-bold text-charcoal-600">
                               {String(index + 1).padStart(2, '0')}
                             </span>
                           </div>
