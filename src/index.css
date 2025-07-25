@@ -1,7 +1,58 @@
 
+/* ZT Formom Local Font Definitions */
+@font-face {
+  font-family: 'ZT Formom';
+  src: url('/fonts/ZT Formom - WEB TT/ZT Formom.woff2') format('woff2'),
+       url('/fonts/ZT Formom - WEB TT/ZT Formom.woff') format('woff'),
+       url('/fonts/ZT Formom - WEB TT/ZT Formom.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  text-rendering: optimizeLegibility;
+}
+
+@font-face {
+  font-family: 'ZT Formom';
+  src: url('/fonts/ZT Formom - WEB TT/ZT Formom Italic.woff2') format('woff2'),
+       url('/fonts/ZT Formom - WEB TT/ZT Formom Italic.woff') format('woff'),
+       url('/fonts/ZT Formom - WEB TT/ZT Formom Italic.ttf') format('truetype');
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  text-rendering: optimizeLegibility;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: 'Eyes for Serif1';
+  src: url('/fonts/eyes for serif1/eyesforserifs-regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Eyes for Serif1';
+  src: url('/fonts/eyes for serif1/eyesforserifs-light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Eyes for Serif1';
+  src: url('/fonts/eyes for serif1/eyesforserifs-bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Eyes for Serif1';
+  src: url('/fonts/eyes for serif1/eyesforserifs-book.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+}
 
 /* Fix horizontal scrolling issues */
 html, body {
@@ -15,173 +66,236 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Natural Earthy Color Palette */
-    --background: 32 20% 96%;
-    --foreground: 210 20% 8%;
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
 
-    --card: 32 20% 96%;
-    --card-foreground: 210 20% 8%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
 
-    --popover: 32 20% 96%;
-    --popover-foreground: 210 20% 8%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
 
-    /* Charcoal Primary */
-    --primary: 210 20% 32%;
-    --primary-foreground: 0 0% 98%;
-    
-    /* Custom Colors */
-    --charcoal-dark: 0 0% 11%; /* #1C1C1C */
-    --forest-green: 150 74% 30%; /* #11864B */
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
 
-    /* Sky Blue Secondary */
-    --secondary: 199 89% 64%;
-    --secondary-foreground: 0 0% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
 
-    /* Warm Beige Muted */
-    --muted: 30 15% 88%;
-    --muted-foreground: 30 15% 45%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
 
-    /* Lavender Accent */
-    --accent: 271 81% 64%;
-    --accent-foreground: 0 0% 98%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
 
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
 
-    --border: 30 15% 85%;
-    --input: 30 15% 85%;
-    --ring: 210 20% 32%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
 
     --radius: 0.75rem;
 
-    --sidebar-background: 32 20% 94%;
-    --sidebar-foreground: 210 20% 8%;
-    --sidebar-primary: 210 20% 32%;
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
     --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 30 15% 88%;
-    --sidebar-accent-foreground: 210 20% 32%;
-    --sidebar-border: 30 15% 85%;
-    --sidebar-ring: 210 20% 32%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
   .dark {
-    --background: 210 20% 8%;
-    --foreground: 0 0% 95%;
-    --card: 210 20% 8%;
-    --card-foreground: 0 0% 95%;
-    --popover: 210 20% 8%;
-    --popover-foreground: 0 0% 95%;
-    --primary: 199 89% 64%;
-    --primary-foreground: 210 20% 8%;
-    --secondary: 271 81% 64%;
-    --secondary-foreground: 0 0% 95%;
-    --muted: 30 15% 15%;
-    --muted-foreground: 30 15% 60%;
-    --accent: 271 81% 64%;
-    --accent-foreground: 210 20% 8%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 95%;
-    --border: 30 15% 15%;
-    --input: 30 15% 15%;
-    --ring: 199 89% 64%;
-    --sidebar-background: 210 20% 6%;
-    --sidebar-foreground: 0 0% 95%;
-    --sidebar-primary: 199 89% 64%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 30 15% 15%;
-    --sidebar-accent-foreground: 0 0% 95%;
-    --sidebar-border: 30 15% 15%;
-    --sidebar-ring: 199 89% 64%;
-  }
-}
-
-@layer base {
-  * {
-    @apply border-border;
+    /* Earthy fitness dark theme */
+    --background: 220 10% 15%; /* Dark charcoal with slight blue undertone */
+    --foreground: 40 30% 92%; /* Warm off-white */
+    --card: 215 15% 16%; /* Dark slate */
+    --card-foreground: 40 30% 92%;
+    --popover: 215 15% 16%;
+    --popover-foreground: 40 30% 92%;
+    --primary: 142 36% 40%; /* Strong, earthy green */
+    --primary-foreground: 40 30% 92%;
+    --secondary: 30 20% 25%; /* Rich brown */
+    --secondary-foreground: 40 30% 92%;
+    --muted: 215 10% 25%;
+    --muted-foreground: 215 10% 75%;
+    --accent: 142 15% 30%; /* Deep forest green */
+    --accent-foreground: 40 30% 92%;
+    --destructive: 0 62.8% 40%; /* Richer red */
+    --destructive-foreground: 40 30% 92%;
+    --border: 215 15% 25%;
+    --input: 215 15% 20%;
+    --ring: 142 36% 40%;
+    --sidebar-background: 220 10% 15%;
+    --sidebar-foreground: 40 30% 92%;
+    --sidebar-primary: 142 36% 40%;
+    --sidebar-primary-foreground: 40 30% 92%;
+    --sidebar-accent: 215 15% 20%;
+    --sidebar-accent-foreground: 40 30% 92%;
+    --sidebar-border: 215 15% 25%;
+    --sidebar-ring: 142 36% 40%;
   }
 
   body {
-    @apply bg-gradient-to-br from-warm-beige-50 via-sage-50 to-lavender-50 text-foreground font-sans;
+    @apply bg-gradient-to-br from-stone-50 via-slate-50 to-neutral-50 text-stone-800;
+    font-family: 'Helvetica', Arial, sans-serif;
     font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  
+  .dark body {
+    @apply bg-gradient-to-br from-zinc-900 via-zinc-800 to-neutral-900 text-stone-200;
   }
 
   html {
     scroll-behavior: smooth;
   }
+
+  button:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible {
+    @apply outline-none ring-2 ring-emerald-400 ring-offset-2;
+  }
 }
 
-/* Custom scrollbar - Natural Earthy theme */
-::-webkit-scrollbar {
-  width: 8px;
-}
 
-::-webkit-scrollbar-track {
-  background: hsl(var(--muted));
-}
-
-::-webkit-scrollbar-thumb {
-  background: hsl(var(--primary));
-  border-radius: 999px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: hsl(210 20% 28%);
-}
-
-@layer components {
-  .soft-lavender {
-    background-color: hsl(271, 40%, 95%);
+   .soft-lavender {
+    background-color: hsl(250, 60%, 95%);
+  }
+  
+  .dark .soft-lavender {
+    background-color: hsl(220, 15%, 18%);
   }
 
   .soft-blush {
-    background-color: hsl(30, 30%, 96%);
+    background-color: hsl(340, 50%, 96%);
+  }
+  
+  .dark .soft-blush {
+    background-color: hsl(220, 12%, 16%);
   }
 
   .soft-sage {
     background-color: hsl(120, 25%, 95%);
   }
+  
+  .dark .soft-sage {
+    background-color: hsl(142, 20%, 15%);
+  }
+
+  .soft-peach {
+    background-color: hsl(20, 60%, 95%);
+  }
+  
+  .dark .soft-peach {
+    background-color: hsl(30, 25%, 16%);
+  }
 
   .soft-sky {
-    background-color: hsl(199, 60%, 95%);
+    background-color: hsl(200, 60%, 95%);
+  }
+  
+  .dark .soft-sky {
+    background-color: hsl(200, 20%, 16%);
+  }
+
+/* Custom scrollbar - Earthy theme */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-stone-100 dark:bg-zinc-800;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-emerald-600 dark:bg-emerald-700 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-emerald-700 dark:bg-emerald-800;
+}
+
+@layer components {
+  .font-helvetica {
+    font-family: 'Helvetica', Arial, sans-serif;
   }
 
   .text-soft-gray {
-    color: hsl(30, 12%, 35%);
+    color: hsl(220, 10%, 35%);
+  }
+  
+  .dark .text-soft-gray {
+    color: hsl(220, 10%, 75%);
   }
 
   .text-muted-gray {
-    color: hsl(30, 12%, 45%);
+    color: hsl(220, 8%, 45%);
   }
-}
+  
+  .dark .text-muted-gray {
+    color: hsl(220, 8%, 70%);
+  }
 
-/* Smooth hover transitions */
-@layer components {
+  /* Smooth hover transitions */
   .hover-lift {
     @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-lg;
   }
   
   .gradient-text {
-    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)));
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    @apply bg-gradient-to-r from-emerald-700 to-stone-700 bg-clip-text text-transparent;
+  }
+  
+  .dark .gradient-text {
+    @apply bg-gradient-to-r from-emerald-500 to-stone-400 bg-clip-text text-transparent;
   }
   
   .section-padding {
     @apply py-16 md:py-20 lg:py-24;
   }
   
-  .btn-primary {
-    background: hsl(var(--primary));
-    color: hsl(var(--primary-foreground));
-    @apply font-medium px-8 py-3 rounded-lg transition-all duration-300 shadow-none border-none;
+  .btn-matte {
+    @apply bg-emerald-700 hover:bg-emerald-800 text-white font-bold px-8 py-3 rounded-lg transition-all duration-300 shadow-none border-none;
     box-shadow: none !important;
+    background-image: none !important;
   }
   
-  .btn-primary:hover {
-    background: hsl(210 20% 28%);
-    transform: translateY(-1px);
-    box-shadow: 0 4px 12px hsl(var(--primary) / 0.3) !important;
+  .btn-matte:hover {
+    @apply bg-emerald-800 -translate-y-px;
+    box-shadow: 0 4px 12px rgba(5, 150, 105, 0.3) !important;
+  }
+  
+  .btn-dark {
+    @apply bg-emerald-800 hover:bg-emerald-900 text-white font-bold px-8 py-3 rounded-lg transition-all duration-300 shadow-none border-none;
+    box-shadow: none !important;
+    background-image: none !important;
+  }
+  
+  .btn-dark:hover {
+    @apply bg-emerald-900 -translate-y-px;
+    box-shadow: 0 4px 12px rgba(5, 150, 105, 0.3) !important;
+  }
+  
+  /* Dark mode card styles */
+  .dark .bg-white {
+    @apply bg-zinc-800;
+  }
+  
+  .dark .bg-white\/95 {
+    background-color: rgba(39, 39, 42, 0.95);
+  }
+  
+  .dark .bg-white\/90 {
+    background-color: rgba(39, 39, 42, 0.90);
+  }
+  
+  .dark .shadow-lg {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.1);
+  }
+  
+  .dark .shadow-xl {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
   }
 }
 
@@ -199,14 +313,7 @@ All colors MUST be HSL.
   animation: pulse-slow 3s ease-in-out infinite;
 }
 
-/* Enhanced focus states for accessibility */
-@layer base {
-  button:focus-visible,
-  input:focus-visible,
-  textarea:focus-visible,
-  select:focus-visible {
-    outline: none;
-    ring: 2px solid hsl(var(--primary));
-    ring-offset: 2px;
-  }
+.fade-in-only {
+  opacity: 1 !important;
+  transition: opacity 1.5s cubic-bezier(0.4,0,0.2,1);
 }

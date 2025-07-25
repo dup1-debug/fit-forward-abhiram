@@ -1,85 +1,69 @@
 
 import { useState } from 'react';
 import { ChevronDown, ChevronUp } from 'lucide-react';
+import { useTheme } from '../hooks/use-theme';
+
+const faqs = [
+  {
+    question: "How quickly will I see real progress?",
+    answer: "Every transformation is unique, but most clients notice positive changes within 3-4 weeks. The real magic happens around week 8-12 when everything clicks together - your strength, confidence, and mindset align."
+  },
+  {
+    question: "Can I train effectively without a gym?",
+    answer: "Absolutely! Some of our most impressive transformations happened with home setups. We design programs around your available space and equipment - what matters most is consistency and the right guidance."
+  },
+  {
+    question: "What level of support can I expect?",
+    answer: "You're never alone in this journey. From detailed workout plans and nutrition strategies to regular progress reviews and motivational support - we're here to guide you every step of the way."
+  },
+  {
+    question: "How do you create my personal program?",
+    answer: "We start with a deep dive into your goals, lifestyle, and current fitness level. Your program evolves with you - adjusting as you get stronger, as your schedule changes, and as your confidence grows."
+  }
+];
 
 const FAQSection = () => {
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);
-
-  const faqs = [
-    {
-      question: "How is this different from other online fitness programs?",
-      answer: "My approach combines personalized workout and nutrition plans with ongoing 24/7 support through WhatsApp. Unlike generic programs, every aspect is tailored to your specific goals, lifestyle, and preferences. Plus, you get direct access to me for guidance throughout your transformation journey."
-    },
-    {
-      question: "Can I really see results in 90 days?",
-      answer: "Absolutely! With proper adherence to the personalized plan, most clients see significant changes within the first 4 weeks. The 90-day program is designed for complete body recomposition - whether your goal is muscle gain, fat loss, or overall fitness improvement."
-    },
-    {
-      question: "What if I'm a complete beginner?",
-      answer: "Perfect! I specialize in working with beginners and creating sustainable fitness habits. Your workout plan will start at your current fitness level and progressively advance. I'll guide you through proper form, technique, and help build your confidence every step of the way."
-    },
-    {
-      question: "Do I need expensive equipment or gym membership?",
-      answer: "Not necessarily! I can design effective workout plans for home workouts, gym settings, or minimal equipment setups. During our consultation, we'll discuss your available resources and create a plan that works with your situation."
-    },
-    {
-      question: "How does the nutrition plan work with Indian food?",
-      answer: "As an Indian coach, I understand our food culture completely. Your meal plans will include delicious Indian dishes that support your goals - from dal and sabzi to healthy versions of your favorite foods. No boring, bland meals here!"
-    },
-    {
-      question: "What kind of support do I get during the program?",
-      answer: "You'll have direct WhatsApp access to me for questions, progress updates, and motivation. Plus weekly check-ins, progress reviews, and plan adjustments as needed. Think of me as your personal fitness mentor, not just a program provider."
-    }
-  ];
+  const { theme } = useTheme();
 
   const toggleFAQ = (index: number) => {
     setOpenFAQ(openFAQ === index ? null : index);
   };
 
   return (
-    <section id="faq" className="section-padding bg-gradient-to-br from-warm-beige-50 via-sage-50 to-lavender-50 relative overflow-hidden">
-      {/* Background decorative elements */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-32 left-16 w-36 h-36 bg-sky-blue-500 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-32 right-16 w-32 h-32 bg-lavender-500 rounded-full blur-2xl"></div>
-        <div className="absolute top-2/3 left-2/3 w-28 h-28 bg-charcoal-500 rounded-full blur-xl"></div>
+    <section id="faq" className={`py-20 ${theme === 'dark' ? 'soft-sage' : 'soft-lavender'}`}>
+      <div className="mx-auto max-w-2xl text-center">
+        <h2 className={`font-serif text-3xl font-bold tracking-tight sm:text-4xl ${theme === 'dark' ? 'text-stone-100' : 'text-gray-900'}`}>Frequently asked questions</h2>
+        <p className={`mt-6 text-lg leading-8 ${theme === 'dark' ? 'text-stone-300' : 'text-muted-foreground'}`}>
+          Find answers to common questions about our transformation programs and coaching services.
+        </p>
       </div>
       
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-charcoal-600 mb-6">
-            Frequently Asked{' '}
-            <span className="text-sky-blue-600">Questions</span>
-          </h2>
-          <p className="text-xl text-muted-foreground">
-            Get answers to common questions about the fitness transformation program
-          </p>
-        </div>
-        
+      <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 mt-16">
         <div className="space-y-6">
           {faqs.map((faq, index) => (
             <div 
               key={index}
-              className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 border border-sage-200"
+              className="bg-white/90 rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
             >
               <button
                 onClick={() => toggleFAQ(index)}
-                className="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-sage-100/30 transition-colors"
+                className="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-gray-50 transition-colors"
               >
-                <h3 className="text-lg font-semibold text-charcoal-600 pr-4">
+                <h3 className="text-lg font-serif font-bold text-gray-900 pr-4">
                   {faq.question}
                 </h3>
                 <div className="flex-shrink-0">
                   {openFAQ === index ? (
-                    <ChevronUp className="w-5 h-5 text-sky-blue-600" />
+                    <ChevronUp className="w-5 h-5 text-emerald-600" />
                   ) : (
-                    <ChevronDown className="w-5 h-5 text-muted-foreground" />
+                    <ChevronDown className="w-5 h-5 text-gray-400" />
                   )}
                 </div>
               </button>
               
               {openFAQ === index && (
-                <div className="px-8 pb-6 text-muted-foreground leading-relaxed bg-sage-50/20">
+                <div className="px-8 pb-6 text-gray-700 leading-relaxed">
                   {faq.answer}
                 </div>
               )}
@@ -88,10 +72,10 @@ const FAQSection = () => {
         </div>
         
         <div className="text-center mt-12">
-          <p className="text-muted-foreground mb-6">Still have questions?</p>
+          <p className={`${theme === 'dark' ? 'text-stone-300' : 'text-gray-600'} mb-6`}>Still have questions?</p>
           <button 
             onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-            className="bg-lavender-500 text-white hover:bg-lavender-600 px-8 py-4 rounded-full text-lg font-semibold hover:shadow-2xl hover:scale-105 transition-all duration-300"
+            className={`${theme === 'dark' ? 'bg-emerald-700 hover:bg-emerald-800' : 'bg-emerald-600 hover:bg-emerald-700'} text-white px-8 py-4 rounded-full text-lg font-bold transition-all duration-300`}
           >
             Get Personal Answers
           </button>

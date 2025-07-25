@@ -2,10 +2,12 @@
 import { Instagram, ExternalLink, Heart, RefreshCw } from 'lucide-react';
 import { useEffect, useRef } from 'react';
 import { useInstagramPosts } from '../hooks/useInstagramPosts';
+import { useTheme } from '../hooks/use-theme';
 
 const InstagramSection = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const { posts, loading, error, refreshPosts, isConfigured } = useInstagramPosts();
+  const { theme } = useTheme();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -35,7 +37,7 @@ const InstagramSection = () => {
       imageUrl: '/placeholder.svg',
       caption: 'Amazing transformation results from our fitness coaching program!',
       likes: '1.2K',
-      postUrl: 'https://instagram.com/coachpotate'
+      postUrl: 'https://www.instagram.com/coachpotate/'
     },
     { 
       id: 'fallback_2', 
@@ -44,7 +46,7 @@ const InstagramSection = () => {
       imageUrl: '/placeholder.svg',
       caption: 'Daily workout motivation and tips for better fitness results.',
       likes: '856',
-      postUrl: 'https://instagram.com/coachpotate'
+      postUrl: 'https://www.instagram.com/coachpotate/'
     },
     { 
       id: 'fallback_3', 
@@ -53,7 +55,7 @@ const InstagramSection = () => {
       imageUrl: '/placeholder.svg',
       caption: 'Healthy meal prep ideas for sustainable weight loss.',
       likes: '943',
-      postUrl: 'https://instagram.com/coachpotate'
+      postUrl: 'https://www.instagram.com/coachpotate/'
     },
     { 
       id: 'fallback_4', 
@@ -62,7 +64,7 @@ const InstagramSection = () => {
       imageUrl: '/placeholder.svg',
       caption: 'Stay motivated on your fitness journey with daily inspiration.',
       likes: '721',
-      postUrl: 'https://instagram.com/coachpotate'
+      postUrl: 'https://www.instagram.com/coachpotate/'
     }
   ];
 
@@ -72,36 +74,28 @@ const InstagramSection = () => {
     window.open(postUrl, '_blank', 'noopener,noreferrer');
   };
 
-  const handleRefresh = async () => {
-    try {
-      await refreshPosts();
-    } catch (err) {
-      console.error('Failed to refresh posts:', err);
-    }
-  };
-
   return (
     <div id="instagram">
-      {/* Mobile Section */}
-      <section ref={sectionRef} className="block lg:hidden section-padding bg-gradient-to-br from-stone-light via-cream-warm to-stone-light relative overflow-hidden">
+      {/* Mobile Section - Completely Separate */}
+      <section ref={sectionRef} className={`block lg:hidden seamless-section ${theme === 'dark' ? 'soft-peach' : 'soft-lavender'} relative overflow-hidden`}>
         {/* Mobile Background Pattern */}
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-10 left-10 w-20 h-20 bg-secondary rounded-full blur-xl"></div>
-          <div className="absolute top-1/3 right-8 w-16 h-16 bg-primary rounded-full blur-lg"></div>
-          <div className="absolute bottom-1/4 left-6 w-24 h-24 bg-accent rounded-full blur-xl"></div>
+          <div className="absolute top-10 left-10 w-20 h-20 bg-gradient-to-br from-emerald-300 to-stone-300 rounded-full blur-xl"></div>
+          <div className="absolute top-1/3 right-8 w-16 h-16 bg-gradient-to-br from-stone-300 to-emerald-300 rounded-full blur-lg"></div>
+          <div className="absolute bottom-1/4 left-6 w-24 h-24 bg-gradient-to-br from-emerald-300 to-stone-300 rounded-full blur-xl"></div>
         </div>
         
         <div className="relative z-10 px-4 py-16">
           {/* Mobile Header */}
           <div className="text-center mb-12">
             <div className="inline-flex items-center gap-3 mb-4">
-              <Instagram className="w-10 h-10 text-secondary" />
-              <h2 className="text-3xl sm:text-4xl font-bold text-primary">
+              <Instagram className={`w-10 h-10 ${theme === 'dark' ? 'text-emerald-500' : 'text-emerald-700'}`} />
+              <h2 className={`text-3xl sm:text-4xl font-bold ${theme === 'dark' ? 'text-stone-100' : 'text-gray-900'} font-formom`}>
                 Join The{' '}
-                <span className="text-secondary">Journey</span>
+                <span className={theme === 'dark' ? 'text-emerald-500' : 'text-emerald-700'}>Journey</span>
               </h2>
             </div>
-            <p className="text-base sm:text-lg text-stone-gray max-w-sm mx-auto leading-relaxed">
+            <p className={`text-base sm:text-lg ${theme === 'dark' ? 'text-stone-300' : 'text-gray-700'} max-w-sm mx-auto leading-relaxed font-helvetica`}>
               {posts.length > 0 
                 ? `Latest posts from @coachpotate on Instagram (${posts.length} posts)` 
                 : 'Daily transformation updates & motivation from your fitness coach'
@@ -114,8 +108,8 @@ const InstagramSection = () => {
             {displayPosts.slice(0, 4).map((post, index) => (
               <div 
                 key={post.id}
-                onClick={() => handlePostClick(post.postUrl || 'https://instagram.com/coachpotate')}
-                className="aspect-[9/16] bg-gradient-to-br from-primary/10 to-secondary/10 rounded-2xl overflow-hidden hover:scale-[1.02] hover:shadow-xl transition-all duration-300 cursor-pointer group relative border border-stone-gray/20 bg-white/80 backdrop-blur-sm"
+                onClick={() => handlePostClick(post.postUrl || 'https://www.instagram.com/coachpotate/')}
+                className="aspect-[9/16] bg-gradient-to-br from-emerald-100 to-stone-200 rounded-2xl overflow-hidden hover:scale-[1.02] hover:shadow-xl transition-all duration-300 cursor-pointer group relative"
               >
                 {posts.length > 0 && post.imageUrl && post.imageUrl !== '/placeholder.svg' ? (
                   <div className="relative w-full h-full">
@@ -137,7 +131,7 @@ const InstagramSection = () => {
                     </div>
                   </div>
                 ) : (
-                  <div className="w-full h-full flex flex-col items-center justify-center text-primary group-hover:text-secondary transition-colors relative p-3">
+                  <div className="w-full h-full flex flex-col items-center justify-center text-gray-700 group-hover:text-emerald-700 transition-colors relative p-3">
                     <Instagram className="w-8 h-8 sm:w-10 sm:h-10 mb-2" />
                     <span className="text-xs sm:text-sm font-semibold text-center leading-tight">
                       {post.label || 'Instagram Post'}
@@ -152,17 +146,17 @@ const InstagramSection = () => {
           {/* Mobile CTA */}
           <div className="text-center">
             <a 
-              href="https://instagram.com/coachpotate" 
+              href="https://www.instagram.com/coachpotate/" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 bg-gradient-to-r from-secondary to-primary text-white px-8 py-4 rounded-full text-lg font-bold hover:shadow-xl hover:scale-105 transition-all duration-300 shadow-lg"
+              className="inline-flex items-center gap-3 bg-stone-800 hover:bg-stone-700 text-white px-8 py-4 rounded-full text-lg font-bold hover:shadow-xl hover:scale-105 transition-all duration-300 shadow-lg font-formom"
             >
               <Instagram className="w-6 h-6" />
               Follow @CoachPotate
             </a>
-            <p className="text-stone-gray mt-4 font-medium text-sm sm:text-base">
+            <p className="text-gray-700 mt-4 font-medium text-sm sm:text-base font-helvetica">
               {posts.length > 0 
-                ? `Latest from ${posts.length} Instagram posts` 
+                ? 'Latest transformation updates and daily motivation' 
                 : 'Join 50K+ transforming their lives'
               }
             </p>
@@ -170,27 +164,22 @@ const InstagramSection = () => {
         </div>
       </section>
 
-      {/* Desktop Section */}
-      <section className="hidden lg:block section-padding bg-gradient-to-br from-stone-light via-cream-warm to-stone-light relative overflow-hidden">
-        {/* Background decorative elements */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-32 left-20 w-40 h-40 bg-secondary rounded-full blur-3xl"></div>
-          <div className="absolute bottom-32 right-20 w-36 h-36 bg-primary rounded-full blur-3xl"></div>
-          <div className="absolute top-2/3 left-1/3 w-32 h-32 bg-accent rounded-full blur-2xl"></div>
-        </div>
-
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-24 relative z-10">
+      {/* Desktop Section - Completely Separate */}
+      <section className={`hidden lg:block seamless-section ${theme === 'dark' ? 'soft-peach' : 'soft-lavender'}`}>
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-24">
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-4 mb-6">
-              <Instagram className="w-12 h-12 text-secondary" />
-              <h2 className="text-4xl md:text-5xl font-bold text-primary">
+              <Instagram className="w-12 h-12 text-emerald-700" />
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 font-formom">
                 Follow The{' '}
-                <span className="text-secondary">Journey</span>
+                <span className="text-emerald-700">
+                  Journey
+                </span>
               </h2>
             </div>
-            <p className="text-xl text-stone-gray max-w-3xl mx-auto">
+            <p className="text-xl text-gray-700 max-w-3xl mx-auto font-helvetica">
               {posts.length > 0 
-                ? `Latest fitness transformations and daily motivation from @coachpotate (${posts.length} posts loaded)` 
+                ? 'Latest fitness transformations and daily motivation from @coachpotate' 
                 : 'Daily fitness transformation updates and motivation from India\'s leading online fitness coach'
               }
             </p>
@@ -200,8 +189,8 @@ const InstagramSection = () => {
             {displayPosts.slice(0, 4).map((post, index) => (
               <div 
                 key={post.id}
-                onClick={() => handlePostClick(post.postUrl || 'https://instagram.com/coachpotate')}
-                className="aspect-[9/16] bg-gradient-to-br from-primary/10 to-secondary/10 rounded-3xl overflow-hidden hover:scale-[1.02] hover:shadow-2xl transition-all duration-300 cursor-pointer group relative border border-stone-gray/20 bg-white/80 backdrop-blur-sm"
+                onClick={() => handlePostClick(post.postUrl || 'https://www.instagram.com/coachpotate/')}
+                className="aspect-[9/16] bg-gradient-to-br from-emerald-100 to-stone-200 rounded-3xl overflow-hidden hover:scale-[1.02] hover:shadow-2xl transition-all duration-300 cursor-pointer group relative"
               >
                 {posts.length > 0 && post.imageUrl && post.imageUrl !== '/placeholder.svg' ? (
                   <div className="relative w-full h-full">
@@ -223,7 +212,7 @@ const InstagramSection = () => {
                     </div>
                   </div>
                 ) : (
-                  <div className="w-full h-full flex flex-col items-center justify-center text-primary group-hover:text-secondary transition-colors relative">
+                  <div className="w-full h-full flex flex-col items-center justify-center text-gray-700 group-hover:text-emerald-700 transition-colors relative">
                     <Instagram className="w-16 h-16 mb-4" />
                     <span className="text-lg font-semibold text-center px-4">
                       {post.label || 'Instagram Post'}
@@ -237,17 +226,17 @@ const InstagramSection = () => {
           
           <div className="text-center">
             <a 
-              href="https://instagram.com/coachpotate" 
+              href="https://www.instagram.com/coachpotate/" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-4 bg-gradient-to-r from-secondary to-primary text-white px-12 py-5 rounded-full text-2xl font-bold hover:shadow-2xl hover:scale-[1.02] transition-all duration-300"
+              className="inline-flex items-center gap-4 bg-stone-800 hover:bg-stone-700 text-white px-12 py-5 rounded-full text-2xl font-bold hover:shadow-2xl hover:scale-[1.02] transition-all duration-300 font-formom"
             >
               <Instagram className="w-8 h-8" />
               Follow @CoachPotate
             </a>
-            <p className="text-stone-gray mt-6 font-medium text-lg">
+            <p className="text-gray-700 mt-6 font-medium text-lg font-helvetica">
               {posts.length > 0 
-                ? `${posts.length} latest posts • Join the fitness transformation community` 
+                ? 'Daily transformation updates • Join the fitness community' 
                 : 'Join 50K+ on their fitness transformation journey'
               }
             </p>
