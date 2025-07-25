@@ -50,16 +50,16 @@ const Navbar = () => {
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
         scrolled 
           ? 'backdrop-blur-lg shadow-lg' 
-          : theme === 'dark' ? 'bg-zinc-900/95' : 'bg-black/50'
+          : theme === 'dark' ? 'bg-black/95' : 'bg-charcoal/90'
       }`}
       style={{
         backgroundColor: scrolled 
           ? theme === 'dark' 
-            ? 'rgba(39, 39, 42, 0.95)' 
+            ? 'rgba(0, 0, 0, 0.95)' 
             : 'rgba(28, 28, 28, 0.95)' 
           : theme === 'dark' 
-            ? 'rgba(31, 41, 55, 0.98)'
-            : 'rgb(0, 0, 0)'
+            ? 'rgba(0, 0, 0, 0.95)'
+            : 'rgba(28, 28, 28, 0.90)'
       }}
     >
       <div className="w-full mx-auto px-4 sm:px-6 lg:px-8">
@@ -78,15 +78,23 @@ const Navbar = () => {
                 <div key={item.id} className="relative group">
                   <button 
                     onClick={() => scrollToSection(item.id)}
-                    className="text-gray-300 hover:text-white transition-colors font-bold text-base lg:text-lg py-2 px-2 rounded-md hover:bg-white/10"
+                    className={`transition-colors font-bold text-base lg:text-lg py-2 px-2 rounded-md ${
+                      theme === 'dark' 
+                        ? 'text-slate-300 hover:text-electric-blue hover:bg-white/10' 
+                        : 'text-slate-300 hover:text-white hover:bg-white/10'
+                    }`}
                   >
                     {item.label}
                   </button>
-                  {/* Stylish Tooltip - Bottom positioned with orange background */}
+                  {/* Stylish Tooltip */}
                   <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-                    <div className="bg-emerald-600 text-white text-xs px-2 py-1 rounded-md shadow-lg whitespace-nowrap">
+                    <div className={`text-white text-xs px-2 py-1 rounded-md shadow-lg whitespace-nowrap ${
+                      theme === 'dark' ? 'bg-electric-blue' : 'bg-strong-green'
+                    }`}>
                       {item.tooltip}
-                      <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 border-l-4 border-r-4 border-b-4 border-transparent border-b-emerald-600"></div>
+                      <div className={`absolute bottom-full left-1/2 transform -translate-x-1/2 border-l-4 border-r-4 border-b-4 border-transparent ${
+                        theme === 'dark' ? 'border-b-electric-blue' : 'border-b-strong-green'
+                      }`}></div>
                     </div>
                   </div>
                 </div>
@@ -133,7 +141,11 @@ const Navbar = () => {
               ))}
               <button 
                 onClick={() => scrollToSection('contact')}
-                className="btn-matte w-full text-center py-4 rounded-md text-base font-bold mt-4"
+                className={`w-full text-center py-4 rounded-md text-base font-bold mt-4 transition-all duration-300 ${
+                  theme === 'dark' 
+                    ? 'bg-electric-blue hover:bg-strong-green text-black' 
+                    : 'bg-strong-green hover:bg-charcoal text-white'
+                }`}
               >
                 Get Started
               </button>

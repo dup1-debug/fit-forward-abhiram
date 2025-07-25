@@ -77,12 +77,22 @@ const AboutSection = () => {
   }, [transformationJourney.length]);
 
   return (
-    <section ref={sectionRef} className={`relative min-h-screen overflow-hidden ${theme === 'dark' ? 'bg-gradient-to-br from-zinc-900 via-zinc-800 to-zinc-900' : 'bg-orange-50'}`}>
+    <section ref={sectionRef} className={`relative min-h-screen overflow-hidden ${
+      theme === 'dark' 
+        ? 'bg-gradient-to-br from-black via-charcoal-900 to-black' 
+        : 'bg-gradient-to-br from-white via-stone-50 to-slate-100'
+    }`}>
       <div className="max-w-7xl mx-auto px-6 py-20">
         {/* Header */}
         <div className="mx-auto max-w-2xl lg:text-center pb-10">
-          <h2 className={`font-serif text-4xl font-bold tracking-tight sm:text-5xl ${theme === 'dark' ? 'text-stone-100' : 'text-gray-900'}`}>The <span className={theme === 'dark' ? 'text-emerald-500' : 'text-emerald-700'}>Journey</span></h2>
-          <p className={`mt-6 text-xl leading-8 ${theme === 'dark' ? 'text-stone-300' : 'text-muted-foreground'}`}>
+          <h2 className={`font-serif text-4xl font-bold tracking-tight sm:text-5xl ${
+            theme === 'dark' ? 'text-white' : 'text-charcoal'
+          }`}>The <span className={
+            theme === 'dark' ? 'text-electric-blue' : 'text-strong-green'
+          }>Journey</span></h2>
+          <p className={`mt-6 text-xl leading-8 ${
+            theme === 'dark' ? 'text-slate-300' : 'text-muted-foreground'
+          }`}>
             Here's how my journey began
           </p>
         </div>

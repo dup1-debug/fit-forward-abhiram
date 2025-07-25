@@ -133,11 +133,17 @@ const TransformationsSection = () => {
         <div className="max-w-7xl mx-auto section-padding relative z-10">
           {/* Mobile Header Section */}
           <div className="text-center mb-12 animate-fade-in">
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4 leading-tight font-serif">
-              Real <span className="text-emerald-700">Transformations</span>
+            <h2 className={`text-3xl sm:text-4xl font-bold mb-4 leading-tight font-serif ${
+              theme === 'dark' ? 'text-white' : 'text-charcoal'
+            }`}>
+              Real <span className={theme === 'dark' ? 'text-electric-blue' : 'text-strong-green'}>Transformations</span>
             </h2>
-            <div className="h-2 w-20 bg-emerald-600 rounded-full mx-auto"></div>
-            <p className="mt-4 text-gray-700 leading-relaxed font-semibold text-lg sm:text-xl mx-4 sm:mx-8 font-helvetica">
+            <div className={`h-2 w-20 rounded-full mx-auto ${
+              theme === 'dark' ? 'bg-electric-blue' : 'bg-strong-green'
+            }`}></div>
+            <p className={`mt-4 leading-relaxed font-semibold text-lg sm:text-xl mx-4 sm:mx-8 font-helvetica ${
+              theme === 'dark' ? 'text-slate-300' : 'text-muted-foreground'
+            }`}>
               See how our clients achieved amazing results with personalized coaching
             </p>
           </div>
@@ -230,11 +236,17 @@ const TransformationsSection = () => {
         <div className="max-w-7xl mx-auto section-padding relative z-10">
           {/* Desktop Header Section */}
           <div className="text-start mb-12 animate-fade-in">
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-3 leading-tight font-serif">
-              Real {' '} <span className="text-emerald-700"> Transformations </span>
+            <h2 className={`text-4xl lg:text-5xl font-bold mb-3 leading-tight font-serif ${
+              theme === 'dark' ? 'text-white' : 'text-charcoal'
+            }`}>
+              Real {' '} <span className={theme === 'dark' ? 'text-electric-blue' : 'text-strong-green'}> Transformations </span>
             </h2>
-            <div className="h-2 w-24 bg-emerald-600 rounded-full"></div>
-            <p className="mt-3 text-gray-700 leading-relaxed font-semibold text-xl max-w-2xl font-helvetica">
+            <div className={`h-2 w-24 rounded-full ${
+              theme === 'dark' ? 'bg-electric-blue' : 'bg-strong-green'
+            }`}></div>
+            <p className={`mt-3 leading-relaxed font-semibold text-xl max-w-2xl font-helvetica ${
+              theme === 'dark' ? 'text-slate-300' : 'text-muted-foreground'
+            }`}>
               Meet the people who took a chance to upgrade themselves
             </p>
           </div>
