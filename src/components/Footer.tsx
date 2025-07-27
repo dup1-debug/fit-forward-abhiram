@@ -1,59 +1,63 @@
-import { Instagram, Mail, Phone } from 'lucide-react';
+import { Instagram, Mail } from 'lucide-react';
 import { useTheme } from '../hooks/use-theme';
 
 const Footer = () => {
   const { theme } = useTheme();
   
   return (
-    <footer className={`py-12 ${
+    <footer className={`border-t ${
       theme === 'dark' 
-        ? 'bg-gradient-to-br from-black to-charcoal-900' 
-        : 'bg-gradient-to-br from-strong-green-50 to-strong-green-100'
-    }`}>
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Main Footer Content */}
-        <div className="text-center space-y-6">
+        ? 'bg-zinc-900 border-zinc-800' 
+        : 'bg-slate-50 border-slate-200'
+    } py-8`}>
+      <div className="max-w-4xl mx-auto px-4">
+        {/* Main Footer Content - Simplified */}
+        <div className="flex flex-col items-center space-y-4">
           {/* Brand */}
-          <div>
-            <h3 className={`text-2xl font-bold mb-2 ${
-              theme === 'dark' ? 'text-white' : 'text-charcoal'
-            }`}>themight</h3>
-            <p className={`max-w-md mx-auto font-bold ${
-              theme === 'dark' ? 'text-slate-300' : 'text-strong-green-800'
+          <div className="text-center">
+            <h3 className={`text-2xl font-bold font-formom ${
+              theme === 'dark' ? 'text-white' : 'text-gray-900'
             }`}>
-              Transform your body, transform your life. India's leading online fitness transformation coach.
+              themight
+            </h3>
+            <p className={`text-sm max-w-md mx-auto font-helvetica ${
+              theme === 'dark' ? 'text-gray-300' : 'text-gray-700'
+            }`}>
+              Transform your body, transform your life.
             </p>
           </div>
           
-          {/* Social Links */}
-          <div className="flex justify-center space-x-4">
+          {/* Social Links - Smaller and visible in both themes */}
+          <div className="flex justify-center space-x-3 mt-2">
             <a 
               href="https://instagram.com/abhiramnair" 
               target="_blank" 
               rel="noopener noreferrer"
-              className={`w-10 h-10 text-white rounded-full flex items-center justify-center hover:scale-110 transition-transform duration-300 ${
-                theme === 'dark' 
-                  ? 'bg-gradient-to-r from-electric-blue to-strong-green' 
-                  : 'bg-gradient-to-r from-strong-green to-charcoal'
+              className={`w-8 h-8 rounded-full flex items-center justify-center transition-transform hover:scale-110 ${
+                theme === 'dark'
+                  ? 'bg-electric-blue text-black'
+                  : 'bg-strong-green text-white'
               }`}
+              aria-label="Instagram"
             >
               <Instagram className="w-4 h-4" />
             </a>
             <a 
               href="mailto:coach@themight.com"
-              className={`w-10 h-10 text-white rounded-full flex items-center justify-center hover:scale-110 transition-transform duration-300 ${
-                theme === 'dark' 
-                  ? 'bg-gradient-to-r from-strong-green to-electric-blue' 
-                  : 'bg-gradient-to-r from-charcoal to-strong-green'
+              className={`w-8 h-8 rounded-full flex items-center justify-center transition-transform hover:scale-110 ${
+                theme === 'dark'
+                  ? 'bg-amber-gold text-black'
+                  : 'bg-amber-gold text-black'
               }`}
+              aria-label="Email"
             >
               <Mail className="w-4 h-4" />
             </a>
           </div>
           
           {/* Copyright */}
-          <div className={`text-sm font-bold ${
-            theme === 'dark' ? 'text-slate-300' : 'text-strong-green-800'
+          <div className={`text-xs ${
+            theme === 'dark' ? 'text-gray-400' : 'text-gray-500'
           }`}>
             © {new Date().getFullYear()} themight. All rights reserved.
           </div>
@@ -62,5 +66,6 @@ const Footer = () => {
     </footer>
   );
 };
+
 
 export default Footer;
