@@ -1,12 +1,14 @@
 import { useState, useEffect, useRef } from 'react';
 import { ChevronDown, Star, Zap, Target, Trophy, Heart, Flame } from 'lucide-react';
 import { useTheme } from '../hooks/use-theme';
+import { useIsMobile } from '../hooks/use-mobile';
 
 const AboutSection = () => {
   const [activeStage, setActiveStage] = useState(0);
   const [scrollProgress, setScrollProgress] = useState(0);
   const sectionRef = useRef<HTMLDivElement>(null);
   const { theme } = useTheme();
+  const isMobile = useIsMobile();
 
   const transformationJourney = [
     {
@@ -93,209 +95,293 @@ const AboutSection = () => {
         </div>
 
         {/* Timeline Container */}
-        <div className="relative max-w-7xl mx-auto">
-          {/* Central Timeline Line */}
-          <div className={`absolute left-1/2 transform -translate-x-1/2 w-1 h-full ${theme === 'dark' ? 'bg-zinc-800' : 'bg-gray-200'} rounded-full`}>
-            <div 
-              className="w-full rounded-full transition-all duration-1000 ease-out"
-              style={{ 
-                height: `${scrollProgress * 100}%`,
-                background: theme === 'dark' 
-                  ? 'linear-gradient(to bottom, hsl(43, 96%, 65%), hsl(200, 100%, 70%), hsl(43, 96%, 65%))' 
-                  : 'linear-gradient(to bottom, hsl(43, 96%, 58%), hsl(142, 71%, 30%), hsl(43, 96%, 58%))'
-              }}
-            />
-          </div>
-
-          {/* Journey Stages */}
-          {transformationJourney.map((stage, index) => {
-            const IconComponent = stage.icon;
-            const isLeft = index % 2 === 0;
-            const isActive = activeStage >= index;
-            
-            return (
-              <div key={stage.id} className="relative mb-24">
-                {/* Timeline Node */}
-                <div className="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 top-1/2 z-10">
-                  <div className={`w-20 h-20 rounded-full 
-                    ${theme === 'dark' 
-                      ? 'border-4 border-zinc-800/80' 
-                      : 'border-4 border-gray-400/90' // Darker border for better visibility
-                    } shadow-xl transition-all duration-700 hover:shadow-2xl ${
-                    isActive 
-                      ? `bg-gradient-to-r ${stage.color} scale-110 shadow-[0_0_15px_rgba(0,0,0,0.3)]` 
-                      : theme === 'dark'
-                        ? 'bg-gradient-to-br from-zinc-800 to-zinc-700 scale-90'
-                        : `bg-gradient-to-br ${stage.color} scale-90` // Darker inactive background
+        {isMobile ? (
+          // Mobile Layout - Vertical Card Stack
+          <div className="space-y-8">
+            {transformationJourney.map((stage, index) => {
+              const IconComponent = stage.icon;
+              const isActive = activeStage >= index;
+              
+              return (
+                <div 
+                  key={stage.id} 
+                  className={`${
+                    theme === 'dark' 
+                      ? 'bg-gradient-to-br from-zinc-900 to-zinc-800 border border-zinc-700' 
+                      : 'bg-gradient-to-br from-white to-gray-50 border border-gray-200 shadow-lg'
+                  } rounded-3xl overflow-hidden transition-all duration-700 ${
+                    isActive ? 'scale-105 shadow-2xl' : 'scale-100'
+                  }`}
+                >
+                  {/* Year Badge */}
+                  <div className={`px-6 py-4 ${
+                    theme === 'dark' 
+                      ? 'bg-gradient-to-r from-zinc-800 to-zinc-700' 
+                      : 'bg-gradient-to-r from-gray-100 to-gray-50'
                   }`}>
-                    {/* Inner ring for added depth */}
-                    <div className={`absolute inset-1 rounded-full bg-opacity-20 backdrop-blur-sm ${
-                      theme === 'light' && !isActive ? 'border border-slate-300' : ''
-                    }`}></div>
-                    
-                    {/* Icon container */}
-                    <div className="w-full h-full flex items-center justify-center relative z-10">
-                      <IconComponent 
-                        size={40} 
-                        strokeWidth={2.5}
-                        fill={isActive ? "transparent" : (theme === 'dark' ? "rgba(100,200,255,0.1)" : "rgba(20,130,80,0.2)")}
-                        className={`${
-                          isActive 
-                            ? `${theme === 'dark' ? 'text-white' : 'text-amber-gold'} filter drop-shadow-md` 
-                            : theme === 'dark'
-                              ? 'text-electric-blue filter drop-shadow-[0_0_3px_rgba(100,200,255,0.5)]' 
-                              : 'text-strong-green/90 filter drop-shadow-[0_0_3px_rgba(20,130,80,0.8)]'
-                        } transition-all duration-500`} 
-                      />
+                    <div className={`inline-flex items-center gap-3 px-4 py-2 rounded-full ${
+                      theme === 'dark' 
+                        ? `bg-gradient-to-r ${stage.color} text-black font-bold` 
+                        : `bg-gradient-to-r ${stage.color} text-white font-bold`
+                    }`}>
+                      <IconComponent size={20} />
+                      <span className="text-sm">{stage.year}</span>
                     </div>
+                  </div>
+
+                  {/* Image */}
+                  <div className="relative aspect-[4/3] overflow-hidden">
+                    <img 
+                      src={stage.image}
+                      alt={`Abhiram's transformation - ${stage.title}`}
+                      className="w-full h-full object-cover object-center transition-transform duration-700 hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                     
-                    {/* Subtle glow effect for active nodes */}
-                    {isActive && (
-                      <div className={`absolute -inset-2 rounded-full opacity-20 blur-md ${
-                        theme === 'dark'
-                          ? 'bg-electric-blue'
-                          : 'bg-strong-green'
+                    {/* Overlay Content */}
+                    <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                      <h3 className="text-2xl font-serif font-bold mb-2">
+                        {stage.title}
+                      </h3>
+                      <p className="text-lg font-helvetica opacity-90">
+                        {stage.subtitle}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Content */}
+                  <div className="p-6">
+                    <p className={`text-base ${
+                      theme === 'dark' ? 'text-gray-300' : 'text-gray-600'
+                    } mb-4 font-helvetica leading-relaxed`}>
+                      {stage.description}
+                    </p>
+
+                    {/* Motivational Quote */}
+                    <div className={`${
+                      theme === 'dark' 
+                        ? 'bg-zinc-800/50 border-l-4 border-electric-blue' 
+                        : 'bg-gray-100/50 border-l-4 border-strong-green'
+                    } p-4 rounded-xl`}>
+                      <p className={`text-sm italic ${
+                        theme === 'dark' ? 'text-white' : 'text-gray-800'
+                      } font-helvetica`}>
+                        <span className={`${theme === 'dark' ? 'text-electric-blue' : 'text-strong-green'} font-bold`}>"</span>
+                        {stage.motivationalText}
+                        <span className={`${theme === 'dark' ? 'text-electric-blue' : 'text-strong-green'} font-bold`}>"</span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        ) : (
+          // Desktop Layout - Timeline
+          <div className="relative max-w-7xl mx-auto">
+            {/* Central Timeline Line */}
+            <div className={`absolute left-1/2 transform -translate-x-1/2 w-1 h-full ${theme === 'dark' ? 'bg-zinc-800' : 'bg-gray-200'} rounded-full`}>
+              <div 
+                className="w-full rounded-full transition-all duration-1000 ease-out"
+                style={{ 
+                  height: `${scrollProgress * 100}%`,
+                  background: theme === 'dark' 
+                    ? 'linear-gradient(to bottom, hsl(43, 96%, 65%), hsl(200, 100%, 70%), hsl(43, 96%, 65%))' 
+                    : 'linear-gradient(to bottom, hsl(43, 96%, 58%), hsl(142, 71%, 30%), hsl(43, 96%, 58%))'
+                }}
+              />
+            </div>
+
+            {/* Journey Stages */}
+            {transformationJourney.map((stage, index) => {
+              const IconComponent = stage.icon;
+              const isLeft = index % 2 === 0;
+              const isActive = activeStage >= index;
+              
+              return (
+                <div key={stage.id} className="relative mb-24">
+                  {/* Timeline Node */}
+                  <div className="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 top-1/2 z-10">
+                    <div className={`w-20 h-20 rounded-full 
+                      ${theme === 'dark' 
+                        ? 'border-4 border-zinc-800/80' 
+                        : 'border-4 border-gray-400/90'
+                      } shadow-xl transition-all duration-700 hover:shadow-2xl ${
+                      isActive 
+                        ? `bg-gradient-to-r ${stage.color} scale-110 shadow-[0_0_15px_rgba(0,0,0,0.3)]` 
+                        : theme === 'dark'
+                          ? 'bg-gradient-to-br from-zinc-800 to-zinc-700 scale-90'
+                          : `bg-gradient-to-br ${stage.color} scale-90`
+                    }`}>
+                      {/* Inner ring for added depth */}
+                      <div className={`absolute inset-1 rounded-full bg-opacity-20 backdrop-blur-sm ${
+                        theme === 'light' && !isActive ? 'border border-slate-300' : ''
                       }`}></div>
-                    )}
+                      
+                      {/* Icon container */}
+                      <div className="w-full h-full flex items-center justify-center relative z-10">
+                        <IconComponent 
+                          size={40} 
+                          strokeWidth={2.5}
+                          fill={isActive ? "transparent" : (theme === 'dark' ? "rgba(100,200,255,0.1)" : "rgba(20,130,80,0.2)")}
+                          className={`${
+                            isActive 
+                              ? `${theme === 'dark' ? 'text-white' : 'text-amber-gold'} filter drop-shadow-md` 
+                              : theme === 'dark'
+                                ? 'text-electric-blue filter drop-shadow-[0_0_3px_rgba(100,200,255,0.5)]' 
+                                : 'text-strong-green/90 filter drop-shadow-[0_0_3px_rgba(20,130,80,0.8)]'
+                          } transition-all duration-500`} 
+                        />
+                      </div>
+                      
+                      {/* Subtle glow effect for active nodes */}
+                      {isActive && (
+                        <div className={`absolute -inset-2 rounded-full opacity-20 blur-md ${
+                          theme === 'dark'
+                            ? 'bg-electric-blue'
+                            : 'bg-strong-green'
+                        }`}></div>
+                      )}
+                    </div>
                   </div>
-                </div>
 
-                {/* Content Layout - Image and Text on opposite sides */}
-                <div className="grid grid-cols-2 gap-16 items-center">
-                  {/* Left Side */}
-                  <div className={`${isLeft ? 'flex justify-end pr-4' : 'flex justify-start pl-4'}`}>
-                    {isLeft ? (
-                      // Image on left for odd stages (2019, 2023)
-                      <div className={`w-full transform transition-all duration-1000 ${
-                        isActive 
-                          ? 'translate-y-0 opacity-100' 
-                          : 'translate-y-8 opacity-50'
-                      }`}>
-                        {/* Year Badge - Enhanced for better visibility in light theme */}
-                        <div className={`inline-block px-8 py-4 rounded-full text-lg font-bold shadow-md ${
-                          theme === 'dark' 
-                            ? index % 2 === 0 
-                              ? 'bg-gradient-to-r from-amber-gold to-electric-blue/90 border-2 border-zinc-700' 
-                              : 'bg-gradient-to-r from-electric-blue to-amber-gold/90 border-2 border-zinc-700'
-                            : index % 2 === 0 
-                              ? 'bg-gradient-to-r from-amber-gold to-strong-green border border-gray-300' 
-                              : 'bg-gradient-to-r from-strong-green to-amber-gold border border-gray-300'
-                        } mb-6`}>
-                          {stage.year}
-                        </div>
+                  {/* Content Layout - Image and Text on opposite sides */}
+                  <div className="grid grid-cols-2 gap-16 items-center">
+                    {/* Left Side */}
+                    <div className={`${isLeft ? 'flex justify-end pr-4' : 'flex justify-start pl-4'}`}>
+                      {isLeft ? (
+                        // Image on left for odd stages
+                        <div className={`w-full transform transition-all duration-1000 ${
+                          isActive 
+                            ? 'translate-y-0 opacity-100' 
+                            : 'translate-y-8 opacity-50'
+                        }`}>
+                          {/* Year Badge */}
+                          <div className={`inline-block px-8 py-4 rounded-full text-lg font-bold shadow-md ${
+                            theme === 'dark' 
+                              ? index % 2 === 0 
+                                ? 'bg-gradient-to-r from-amber-gold to-electric-blue/90 border-2 border-zinc-700' 
+                                : 'bg-gradient-to-r from-electric-blue to-amber-gold/90 border-2 border-zinc-700'
+                              : index % 2 === 0 
+                                ? 'bg-gradient-to-r from-amber-gold to-strong-green border border-gray-300' 
+                                : 'bg-gradient-to-r from-strong-green to-amber-gold border border-gray-300'
+                          } mb-6`}>
+                            {stage.year}
+                          </div>
 
-                        {/* Image Container */}
-                        <div className="relative group mb-6">
-                          <div className="overflow-hidden rounded-3xl shadow-2xl h-96 w-full">
-                            <img 
-                              src={stage.image}
-                              alt={`Abhiram's transformation - ${stage.title}`}
-                              className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110"
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                          {/* Image Container */}
+                          <div className="relative group mb-6">
+                            <div className="overflow-hidden rounded-3xl shadow-2xl h-96 w-full">
+                              <img 
+                                src={stage.image}
+                                alt={`Abhiram's transformation - ${stage.title}`}
+                                className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110"
+                              />
+                              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    ) : (
-                      // Content on left for even stages (2021, 2024)
-                      <div className={`w-full transform transition-all duration-1000 ${
-                        isActive 
-                          ? 'translate-y-0 opacity-100' 
-                          : 'translate-y-8 opacity-50'
-                      }`}>
-                        <h3 className={`text-4xl font-serif font-bold mb-4 ${theme === 'dark' ? 'text-electric-blue' : 'text-strong-green'}`}>
-                          {stage.title}
-                        </h3>
-                        <h4 className={`text-xl font-inter ${theme === 'dark' ? 'text-stone-300' : 'text-gray-600'} mb-4 font-helvetica`}>
-                          {stage.subtitle}
-                        </h4>
-                        <p className={`text-lg ${theme === 'dark' ? 'text-stone-400' : 'text-gray-500'} mb-6 font-helvetica leading-relaxed`}>
-                          {stage.description}
-                        </p>
-
-                        {/* Motivational Quote */}
-                        <div className={`${
-                          theme === 'dark' 
-                            ? 'bg-gradient-to-r from-zinc-800 to-zinc-800/90 border-l-4 border-electric-blue' 
-                            : 'bg-gradient-to-r from-white to-slate-100 border-l-4 border-strong-green/80 shadow-md'
-                        } p-6 rounded-2xl`}>
-                          <p className={`text-base italic ${theme === 'dark' ? 'text-white' : 'text-gray-700'} font-helvetica leading-relaxed`}>
-                            <span className="text-electric-blue font-bold">"</span>{stage.motivationalText}<span className="text-electric-blue font-bold">"</span>
+                      ) : (
+                        // Content on left for even stages
+                        <div className={`w-full transform transition-all duration-1000 ${
+                          isActive 
+                            ? 'translate-y-0 opacity-100' 
+                            : 'translate-y-8 opacity-50'
+                        }`}>
+                          <h3 className={`text-4xl font-serif font-bold mb-4 ${theme === 'dark' ? 'text-electric-blue' : 'text-strong-green'}`}>
+                            {stage.title}
+                          </h3>
+                          <h4 className={`text-xl font-inter ${theme === 'dark' ? 'text-stone-300' : 'text-gray-600'} mb-4 font-helvetica`}>
+                            {stage.subtitle}
+                          </h4>
+                          <p className={`text-lg ${theme === 'dark' ? 'text-stone-400' : 'text-gray-500'} mb-6 font-helvetica leading-relaxed`}>
+                            {stage.description}
                           </p>
-                        </div>
-                      </div>
-                    )}
-                  </div>
 
-                  {/* Right Side */}
-                  <div className={`${isLeft ? 'flex justify-start pl-4' : 'flex justify-end pr-4'}`}>
-                    {isLeft ? (
-                      // Content on right for odd stages (2019, 2023)
-                      <div className={`w-full transform transition-all duration-1000 ${
-                        isActive 
-                          ? 'translate-y-0 opacity-100' 
-                          : 'translate-y-8 opacity-50'
-                      }`}>
-                        <h3 className={`text-4xl font-serif font-bold mb-4 ${theme === 'dark' ? 'text-electric-blue' : 'text-strong-green'}`}>
-                          {stage.title}
-                        </h3>
-                        <h4 className={`text-xl font-inter ${theme === 'dark' ? 'text-stone-300' : 'text-gray-600'} mb-4 font-helvetica`}>
-                          {stage.subtitle}
-                        </h4>
-                        <p className={`text-lg ${theme === 'dark' ? 'text-stone-400' : 'text-gray-500'} mb-6 font-helvetica leading-relaxed`}>
-                          {stage.description}
-                        </p>
-
-                        {/* Motivational Quote */}
-                        <div className={`${
-                          theme === 'dark' 
-                            ? 'bg-gradient-to-r from-zinc-800 to-zinc-800/90 border-l-4 border-electric-blue' 
-                            : 'bg-gradient-to-r from-white to-slate-100 border-l-4 border-strong-green/80 shadow-md'
-                        } p-6 rounded-2xl`}>
-                          <p className={`text-base italic ${theme === 'dark' ? 'text-white' : 'text-gray-700'} font-helvetica leading-relaxed`}>
-                            <span className="text-electric-blue font-bold">"</span>{stage.motivationalText}<span className="text-electric-blue font-bold">"</span>
-                          </p>
-                        </div>
-                      </div>
-                    ) : (
-                      // Image on right for even stages (2021, 2024)
-                      <div className={`w-full transform transition-all duration-1000 ${
-                        isActive 
-                          ? 'translate-y-0 opacity-100' 
-                          : 'translate-y-8 opacity-50'
-                      }`}>
-                        {/* Year Badge - Enhanced for better visibility in light theme */}
-                        <div className={`inline-block px-8 py-4 rounded-full text-lg font-bold shadow-md ${
-                          theme === 'dark' 
-                            ? index % 2 === 0 
-                              ? 'bg-gradient-to-r from-amber-gold to-electric-blue/90 border-2 border-zinc-700' 
-                              : 'bg-gradient-to-r from-electric-blue to-amber-gold/90 border-2 border-zinc-700'
-                            : index % 2 === 0 
-                              ? 'bg-gradient-to-r from-amber-gold to-strong-green border border-gray-300' 
-                              : 'bg-gradient-to-r from-strong-green to-amber-gold border border-gray-300'
-                        } mb-6`}>
-                          {stage.year}
-                        </div>
-
-                        {/* Image Container */}
-                        <div className="relative group mb-6">
-                          <div className="overflow-hidden rounded-3xl shadow-2xl h-96 w-full">
-                            <img 
-                              src={stage.image}
-                              alt={`Abhiram's transformation - ${stage.title}`}
-                              className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110"
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                          {/* Motivational Quote */}
+                          <div className={`${
+                            theme === 'dark' 
+                              ? 'bg-gradient-to-r from-zinc-800 to-zinc-800/90 border-l-4 border-electric-blue' 
+                              : 'bg-gradient-to-r from-white to-slate-100 border-l-4 border-strong-green/80 shadow-md'
+                          } p-6 rounded-2xl`}>
+                            <p className={`text-base italic ${theme === 'dark' ? 'text-white' : 'text-gray-700'} font-helvetica leading-relaxed`}>
+                              <span className="text-electric-blue font-bold">"</span>{stage.motivationalText}<span className="text-electric-blue font-bold">"</span>
+                            </p>
                           </div>
                         </div>
-                      </div>
-                    )}
+                      )}
+                    </div>
+
+                    {/* Right Side */}
+                    <div className={`${isLeft ? 'flex justify-start pl-4' : 'flex justify-end pr-4'}`}>
+                      {isLeft ? (
+                        // Content on right for odd stages
+                        <div className={`w-full transform transition-all duration-1000 ${
+                          isActive 
+                            ? 'translate-y-0 opacity-100' 
+                            : 'translate-y-8 opacity-50'
+                        }`}>
+                          <h3 className={`text-4xl font-serif font-bold mb-4 ${theme === 'dark' ? 'text-electric-blue' : 'text-strong-green'}`}>
+                            {stage.title}
+                          </h3>
+                          <h4 className={`text-xl font-inter ${theme === 'dark' ? 'text-stone-300' : 'text-gray-600'} mb-4 font-helvetica`}>
+                            {stage.subtitle}
+                          </h4>
+                          <p className={`text-lg ${theme === 'dark' ? 'text-stone-400' : 'text-gray-500'} mb-6 font-helvetica leading-relaxed`}>
+                            {stage.description}
+                          </p>
+
+                          {/* Motivational Quote */}
+                          <div className={`${
+                            theme === 'dark' 
+                              ? 'bg-gradient-to-r from-zinc-800 to-zinc-800/90 border-l-4 border-electric-blue' 
+                              : 'bg-gradient-to-r from-white to-slate-100 border-l-4 border-strong-green/80 shadow-md'
+                          } p-6 rounded-2xl`}>
+                            <p className={`text-base italic ${theme === 'dark' ? 'text-white' : 'text-gray-700'} font-helvetica leading-relaxed`}>
+                              <span className="text-electric-blue font-bold">"</span>{stage.motivationalText}<span className="text-electric-blue font-bold">"</span>
+                            </p>
+                          </div>
+                        </div>
+                      ) : (
+                        // Image on right for even stages
+                        <div className={`w-full transform transition-all duration-1000 ${
+                          isActive 
+                            ? 'translate-y-0 opacity-100' 
+                            : 'translate-y-8 opacity-50'
+                        }`}>
+                          {/* Year Badge */}
+                          <div className={`inline-block px-8 py-4 rounded-full text-lg font-bold shadow-md ${
+                            theme === 'dark' 
+                              ? index % 2 === 0 
+                                ? 'bg-gradient-to-r from-amber-gold to-electric-blue/90 border-2 border-zinc-700' 
+                                : 'bg-gradient-to-r from-electric-blue to-amber-gold/90 border-2 border-zinc-700'
+                              : index % 2 === 0 
+                                ? 'bg-gradient-to-r from-amber-gold to-strong-green border border-gray-300' 
+                                : 'bg-gradient-to-r from-strong-green to-amber-gold border border-gray-300'
+                          } mb-6`}>
+                            {stage.year}
+                          </div>
+
+                          {/* Image Container */}
+                          <div className="relative group mb-6">
+                            <div className="overflow-hidden rounded-3xl shadow-2xl h-96 w-full">
+                              <img 
+                                src={stage.image}
+                                alt={`Abhiram's transformation - ${stage.title}`}
+                                className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110"
+                              />
+                              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                            </div>
+                          </div>
+                        </div>
+                      )}
+                    </div>
                   </div>
                 </div>
-              </div>
-            );
-          })}
-        </div>
+              );
+            })}
+          </div>
+        )}
 
 
         {/* Final Inspiration */}
