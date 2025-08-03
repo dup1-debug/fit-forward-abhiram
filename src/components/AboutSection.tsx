@@ -96,81 +96,50 @@ const AboutSection = () => {
 
         {/* Timeline Container */}
         {isMobile ? (
-          // Mobile Layout - Vertical Card Stack
-          <div className="space-y-8">
+          // Mobile Layout - Clean & Minimal
+          <div className="space-y-6">
             {transformationJourney.map((stage, index) => {
-              const IconComponent = stage.icon;
               const isActive = activeStage >= index;
               
               return (
                 <div 
                   key={stage.id} 
-                  className={`${
-                    theme === 'dark' 
-                      ? 'bg-gradient-to-br from-zinc-900 to-zinc-800 border border-zinc-700' 
-                      : 'bg-gradient-to-br from-white to-gray-50 border border-gray-200 shadow-lg'
-                  } rounded-3xl overflow-hidden transition-all duration-700 ${
-                    isActive ? 'scale-105 shadow-2xl' : 'scale-100'
+                  className={`transition-all duration-700 ${
+                    isActive ? 'opacity-100 translate-y-0' : 'opacity-70 translate-y-4'
                   }`}
                 >
-                  {/* Year Badge */}
-                  <div className={`px-6 py-4 ${
-                    theme === 'dark' 
-                      ? 'bg-gradient-to-r from-zinc-800 to-zinc-700' 
-                      : 'bg-gradient-to-r from-gray-100 to-gray-50'
-                  }`}>
-                    <div className={`inline-flex items-center gap-3 px-4 py-2 rounded-full ${
+                  {/* Year */}
+                  <div className="text-center mb-3">
+                    <span className={`inline-block px-4 py-2 rounded-full text-sm font-medium ${
                       theme === 'dark' 
-                        ? `bg-gradient-to-r ${stage.color} text-black font-bold` 
-                        : `bg-gradient-to-r ${stage.color} text-white font-bold`
+                        ? 'bg-dark-surface text-white border border-dark-border' 
+                        : 'bg-light-surface text-gray-700 border border-light-border'
                     }`}>
-                      <IconComponent size={20} />
-                      <span className="text-sm">{stage.year}</span>
-                    </div>
+                      {stage.year}
+                    </span>
                   </div>
 
                   {/* Image */}
-                  <div className="relative aspect-[4/3] overflow-hidden">
+                  <div className="relative aspect-[4/3] rounded-2xl overflow-hidden mb-4">
                     <img 
                       src={stage.image}
                       alt={`Abhiram's transformation - ${stage.title}`}
-                      className="w-full h-full object-cover object-center transition-transform duration-700 hover:scale-110"
+                      className="w-full h-full object-cover object-center"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                    
-                    {/* Overlay Content */}
-                    <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                      <h3 className="text-2xl font-serif font-bold mb-2">
-                        {stage.title}
-                      </h3>
-                      <p className="text-lg font-helvetica opacity-90">
-                        {stage.subtitle}
-                      </p>
-                    </div>
                   </div>
 
                   {/* Content */}
-                  <div className="p-6">
-                    <p className={`text-base ${
+                  <div className="text-center px-4">
+                    <h3 className={`text-xl font-medium mb-2 ${
+                      theme === 'dark' ? 'text-white' : 'text-gray-900'
+                    }`}>
+                      {stage.title}
+                    </h3>
+                    <p className={`text-sm leading-relaxed ${
                       theme === 'dark' ? 'text-gray-300' : 'text-gray-600'
-                    } mb-4 font-helvetica leading-relaxed`}>
-                      {stage.description}
+                    }`}>
+                      {stage.description.split('.')[0]}.
                     </p>
-
-                    {/* Motivational Quote */}
-                    <div className={`${
-                      theme === 'dark' 
-                        ? 'bg-zinc-800/50 border-l-4 border-electric-blue' 
-                        : 'bg-gray-100/50 border-l-4 border-strong-green'
-                    } p-4 rounded-xl`}>
-                      <p className={`text-sm italic ${
-                        theme === 'dark' ? 'text-white' : 'text-gray-800'
-                      } font-helvetica`}>
-                        <span className={`${theme === 'dark' ? 'text-electric-blue' : 'text-strong-green'} font-bold`}>"</span>
-                        {stage.motivationalText}
-                        <span className={`${theme === 'dark' ? 'text-electric-blue' : 'text-strong-green'} font-bold`}>"</span>
-                      </p>
-                    </div>
                   </div>
                 </div>
               );
