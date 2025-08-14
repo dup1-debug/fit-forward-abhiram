@@ -73,12 +73,12 @@ const HeroSection = () => {
 
       {/* Content - Different layouts for mobile and desktop */}
       <div className={`relative z-10 w-full ${theme !== 'dark' ? 'text-shadow-md' : ''}`}>
-        {/* Mobile Content - Simple Flexbox Layout */}
-        <div className="md:hidden h-screen flex flex-col justify-between py-16 px-6">
-          {/* Main Content */}
-          <div className="flex-1 flex flex-col justify-center space-y-6">
+        {/* Mobile Content - Full Screen Layout */}
+        <div className="md:hidden min-h-screen flex flex-col justify-center px-6 py-4">
+          {/* Main Content Container - Centered */}
+          <div className="flex-1 flex flex-col justify-center space-y-4 min-h-0">
             {/* Title */}
-            <h1 className={`text-4xl font-bold leading-tight tracking-tight font-helvetica uppercase opacity-0 ${theme === 'dark' ? 'text-white' : 'text-white'}`} style={{animation: "fadeIn 1.5s ease-in-out 0.3s forwards"}}>
+            <h1 className={`text-3xl sm:text-4xl font-bold leading-tight tracking-tight font-helvetica uppercase opacity-0 text-center ${theme === 'dark' ? 'text-white' : 'text-white'}`} style={{animation: "fadeIn 1.5s ease-in-out 0.3s forwards"}}>
               IT'S TIME TO <br/>
               <span className={`${theme === 'dark' ? 'text-electric-blue' : 'text-strong-green'} opacity-0`} style={{animation: "fadeIn 1.5s ease-in-out 0.6s forwards"}}>
                 UPGRADE
@@ -89,33 +89,32 @@ const HeroSection = () => {
             </h1>
             
             {/* Subtitle */}
-            <div className="space-y-2">
-              <p className={`opacity-0 font-medium text-xl ${theme === 'dark' ? 'text-white' : 'text-white'}`} style={{animation: "fadeIn 1.5s ease-in-out 1.0s forwards"}}>
+            <div className="space-y-3 text-center">
+              <p className={`opacity-0 font-medium text-lg sm:text-xl ${theme === 'dark' ? 'text-white' : 'text-white'}`} style={{animation: "fadeIn 1.5s ease-in-out 1.0s forwards"}}>
                 This is <span className={`font-bold ${theme === 'dark' ? 'text-electric-blue' : 'text-strong-green'}`}>Abhiram,</span><br/>
                 Founder of themight
               </p>
-              <p className={`opacity-0 text-base font-medium leading-relaxed ${theme === 'dark' ? 'text-white' : 'text-white'}`} style={{animation: "fadeIn 1.5s ease-in-out 1.3s forwards"}}>
+              <p className={`opacity-0 text-sm sm:text-base font-medium leading-relaxed ${theme === 'dark' ? 'text-white' : 'text-white'}`} style={{animation: "fadeIn 1.5s ease-in-out 1.3s forwards"}}>
                 Transform your body with India's leading<br/>
                 online fitness transformation coach
               </p>
             </div>
             
+            
             {/* Animated Text */}
-            <div className="opacity-0" style={{animation: "fadeIn 1.5s ease-in-out 1.6s forwards"}}>
-              <div className="flex flex-col items-center space-y-1 text-center">
-                <div className="flex items-center justify-center space-x-2">
-                  <span className="text-sm font-bold text-white">+ CONFIDENCE</span>
-                  <span className="text-sm font-bold text-white">= BETTER YOU</span>
-                </div>
+            <div className="opacity-0 text-center py-2" style={{animation: "fadeIn 1.5s ease-in-out 1.6s forwards"}}>
+              <div className="flex items-center justify-center space-x-2">
+                <span className="text-sm font-bold text-white">+ CONFIDENCE</span>
+                <span className="text-sm font-bold text-white">= BETTER YOU</span>
               </div>
             </div>
           </div>
           
-          {/* CTA Button at Bottom */}
-          <div className="flex-shrink-0 opacity-0" style={{animation: "fadeIn 1.5s ease-in-out 1.9s forwards"}}>
+          {/* CTA Button - Fixed at bottom with safe area */}
+          <div className="flex-shrink-0 pb-safe opacity-0" style={{animation: "fadeIn 1.5s ease-in-out 1.9s forwards"}}>
             <button 
               onClick={scrollToForm}
-              className="btn-primary text-base font-bold w-full py-4 px-6 rounded-xl shadow-lg font-helvetica transition-all duration-300 hover:scale-105 active:scale-95"
+              className="btn-primary text-sm sm:text-base font-bold w-full py-3 sm:py-4 px-4 sm:px-6 rounded-xl shadow-lg font-helvetica transition-all duration-300 hover:scale-105 active:scale-95"
             >
               Start Your Fitness Journey Today
             </button>
